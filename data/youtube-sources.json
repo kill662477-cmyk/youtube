@@ -1,0 +1,29 @@
+{
+  "sources": [
+    {
+      "name": "김윤환",
+      "type": "youtube",
+      "url": "http://www.youtube.com/@calmtube2"
+    },
+    {
+      "name": "이경민",
+      "type": "youtube",
+      "url": "https://www.youtube.com/channel/UCNS486DlVIvdRgOxnCQdzmA"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "url": "https://www.youtube.com/channel/UCmUZd7y5B8uCBuX-uQrBgJw"
+    },
+    {
+      "name": "파도튜브",
+      "type": "youtube",
+      "url": "http://www.youtube.com/@padotube9207"
+    },
+    {
+      "name": "토마토",
+      "type": "youtube",
+      "url": "https://www.youtube.com/channel/UCoBw6khRoeei_tgSBueVUXw"
+    }
+  ]
+}
