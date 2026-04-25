@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-04-25 14:03:14",
+  "checkedAt": "2026-04-25 14:07:06",
   "count": 10,
   "items": [
     {
@@ -123,5 +123,14 @@
       "updatedAt": "2026-04-22T12:56:26+00:00"
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "source": {
+        "name": "김윤환",
+        "type": "youtube",
+        "url": "https://www.youtube.com/UCMdZ5zu77smM21ZMh2PZDDQ"
+      },
+      "message": "404 Not Found"
+    }
+  ]
 }
