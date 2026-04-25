@@ -1,10 +1,11 @@
 {
   "sources": [
-    {
-      "name": "김윤환",
-      "type": "youtube",
-      "url": "https://www.youtube.com/UCMdZ5zu77smM21ZMh2PZDDQ"
-    },
+   {
+  "name": "김윤환",
+  "type": "youtube",
+  "url": "https://www.youtube.com/channel/UCMdZ5zu77smM21ZMh2PZDDQ",
+  "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ"
+},
     {
       "name": "이경민",
       "type": "youtube",
