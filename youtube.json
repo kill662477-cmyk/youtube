@@ -1,7 +1,19 @@
 {
-  "checkedAt": "2026-04-26 02:25:12",
+  "checkedAt": "2026-04-26 02:30:24",
   "count": 12,
   "items": [
+    {
+      "name": "김윤환",
+      "type": "youtube",
+      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
+      "channelTitle": "김윤환TV [풀영상]",
+      "title": "\"이의 있습니다!\" 역전재판을 노리는 학생과 전담교수들 ㅋㅋㅋ 【대학대전 재판 :: 26.04.25 #2 풀영상】",
+      "url": "https://www.youtube.com/watch?v=xmZxsrwz8cY",
+      "videoId": "xmZxsrwz8cY",
+      "thumbnail": "https://i.ytimg.com/vi/xmZxsrwz8cY/hqdefault.jpg",
+      "publishedAt": "2026-04-25T17:21:25+00:00",
+      "updatedAt": "2026-04-25T17:21:26+00:00"
+    },
     {
       "name": "김윤환",
       "type": "youtube",
@@ -133,18 +145,6 @@
       "thumbnail": "https://i.ytimg.com/vi/NYnd_Vt0K5A/hqdefault.jpg",
       "publishedAt": "2026-04-22T09:00:38+00:00",
       "updatedAt": "2026-04-22T09:00:38+00:00"
-    },
-    {
-      "name": "이경민",
-      "type": "youtube",
-      "channelId": "UCNS486DlVIvdRgOxnCQdzmA",
-      "channelTitle": "이경민",
-      "title": "이경민이 돈을 아껴야 하는 충격적인 이유",
-      "url": "https://www.youtube.com/watch?v=0O2KrVvPL50",
-      "videoId": "0O2KrVvPL50",
-      "thumbnail": "https://i.ytimg.com/vi/0O2KrVvPL50/hqdefault.jpg",
-      "publishedAt": "2026-04-22T08:30:01+00:00",
-      "updatedAt": "2026-04-23T06:56:08+00:00"
     }
   ],
   "errors": []
