@@ -1,7 +1,19 @@
 {
-  "checkedAt": "2026-04-26 02:00:27",
+  "checkedAt": "2026-04-26 02:05:14",
   "count": 12,
   "items": [
+    {
+      "name": "김윤환",
+      "type": "youtube",
+      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
+      "channelTitle": "김윤환TV [풀영상]",
+      "title": "빌드실명제 최초 도입, 패배의 책임.. 이젠 더이상 피할 수 없다! 【츠캄 몬스타즈 vs 뉴캣슬 대학대전 :: 26.04.25 #1 풀영상】",
+      "url": "https://www.youtube.com/watch?v=o3_Kq5E5ric",
+      "videoId": "o3_Kq5E5ric",
+      "thumbnail": "https://i.ytimg.com/vi/o3_Kq5E5ric/hqdefault.jpg",
+      "publishedAt": "2026-04-25T16:55:57+00:00",
+      "updatedAt": "2026-04-25T16:55:57+00:00"
+    },
     {
       "name": "이경민",
       "type": "fulltube",
@@ -133,18 +145,6 @@
       "thumbnail": "https://i.ytimg.com/vi/0O2KrVvPL50/hqdefault.jpg",
       "publishedAt": "2026-04-22T08:30:01+00:00",
       "updatedAt": "2026-04-23T06:56:08+00:00"
-    },
-    {
-      "name": "이경민",
-      "type": "fulltube",
-      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
-      "channelTitle": "이경민의 풀영상",
-      "title": "역대급 난이도 게임 '20시간 내로 클리어' 세키로 도전하겠습니다 [26.04.21]",
-      "url": "https://www.youtube.com/watch?v=XE0hqCP6mRg",
-      "videoId": "XE0hqCP6mRg",
-      "thumbnail": "https://i.ytimg.com/vi/XE0hqCP6mRg/hqdefault.jpg",
-      "publishedAt": "2026-04-22T03:19:54+00:00",
-      "updatedAt": "2026-04-24T17:04:03+00:00"
     }
   ],
   "errors": []
