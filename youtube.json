@@ -1,7 +1,19 @@
 {
-  "checkedAt": "2026-04-26 00:50:17",
+  "checkedAt": "2026-04-26 00:55:15",
   "count": 12,
   "items": [
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "츠캄 vs 뉴캣슬, 빌드실명제로 제대로 증명됩니다 [26.04.25 #1]",
+      "url": "https://www.youtube.com/watch?v=BdmVuYSGM1U",
+      "videoId": "BdmVuYSGM1U",
+      "thumbnail": "https://i.ytimg.com/vi/BdmVuYSGM1U/hqdefault.jpg",
+      "publishedAt": "2026-04-25T15:45:01+00:00",
+      "updatedAt": "2026-04-25T15:45:01+00:00"
+    },
     {
       "name": "토마토",
       "type": "youtube",
@@ -133,18 +145,6 @@
       "thumbnail": "https://i.ytimg.com/vi/XE0hqCP6mRg/hqdefault.jpg",
       "publishedAt": "2026-04-22T03:19:54+00:00",
       "updatedAt": "2026-04-24T17:04:03+00:00"
-    },
-    {
-      "name": "김윤환",
-      "type": "youtube",
-      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
-      "channelTitle": "김윤환TV [풀영상]",
-      "title": "이거 왜 이렇게 수치스럽지? 김윤환의 차원여행을 구경하는 거위들 ㅋㅋㅋ 【덕몽어스 :: 26.04.21 #2 풀영상】",
-      "url": "https://www.youtube.com/watch?v=SwfZiaONUvk",
-      "videoId": "SwfZiaONUvk",
-      "thumbnail": "https://i.ytimg.com/vi/SwfZiaONUvk/hqdefault.jpg",
-      "publishedAt": "2026-04-21T22:13:48+00:00",
-      "updatedAt": "2026-04-24T11:51:25+00:00"
     }
   ],
   "errors": []
