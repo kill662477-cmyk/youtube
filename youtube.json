@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-04-25 14:40:20",
-  "count": 9,
+  "checkedAt": "2026-04-25 14:44:05",
+  "count": 12,
   "items": [
     {
       "name": "이경민",
@@ -109,6 +109,42 @@
       "thumbnail": "https://i.ytimg.com/vi/0O2KrVvPL50/hqdefault.jpg",
       "publishedAt": "2026-04-22T08:30:01+00:00",
       "updatedAt": "2026-04-23T06:56:08+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "역대급 난이도 게임 '20시간 내로 클리어' 세키로 도전하겠습니다 [26.04.21]",
+      "url": "https://www.youtube.com/watch?v=XE0hqCP6mRg",
+      "videoId": "XE0hqCP6mRg",
+      "thumbnail": "https://i.ytimg.com/vi/XE0hqCP6mRg/hqdefault.jpg",
+      "publishedAt": "2026-04-22T03:19:54+00:00",
+      "updatedAt": "2026-04-24T17:04:03+00:00"
+    },
+    {
+      "name": "김윤환",
+      "type": "youtube",
+      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
+      "channelTitle": "김윤환TV [풀영상]",
+      "title": "이거 왜 이렇게 수치스럽지? 김윤환의 차원여행을 구경하는 거위들 ㅋㅋㅋ 【덕몽어스 :: 26.04.21 #2 풀영상】",
+      "url": "https://www.youtube.com/watch?v=SwfZiaONUvk",
+      "videoId": "SwfZiaONUvk",
+      "thumbnail": "https://i.ytimg.com/vi/SwfZiaONUvk/hqdefault.jpg",
+      "publishedAt": "2026-04-21T22:13:48+00:00",
+      "updatedAt": "2026-04-24T11:51:25+00:00"
+    },
+    {
+      "name": "김윤환",
+      "type": "youtube",
+      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
+      "channelTitle": "김윤환TV [풀영상]",
+      "title": "여캠 패기의 달인 그가 돌아왔다 ㄷㄷ 2대4 햄스터 서열정리에 나선 클템과 김윤환 ㅋㅋ 【클암의 위대한 도전 :: 26.04.21 #1 풀영상】",
+      "url": "https://www.youtube.com/watch?v=2ifIqZCv1u4",
+      "videoId": "2ifIqZCv1u4",
+      "thumbnail": "https://i.ytimg.com/vi/2ifIqZCv1u4/hqdefault.jpg",
+      "publishedAt": "2026-04-21T21:00:52+00:00",
+      "updatedAt": "2026-04-24T11:29:33+00:00"
     }
   ],
   "errors": []
