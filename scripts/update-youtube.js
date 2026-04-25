@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const SOURCE_FILE = "data/youtube-sources.json";
 const OUTPUT_FILE = "youtube.json";
-const MAX_ITEMS = 10;
+const MAX_ITEMS = 9;
 
 function nowKST() {
   const date = new Date();
