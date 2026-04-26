@@ -1,7 +1,152 @@
 {
-  "checkedAt": "2026-04-26 13:55:12",
-  "count": 0,
-  "items": [],
+  "checkedAt": "2026-04-26 14:00:26",
+  "count": 12,
+  "items": [
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "판사님 저는 죄가 없습니다 [26.04.25 #2]",
+      "url": "https://www.youtube.com/watch?v=uJvHowwAd4w",
+      "videoId": "uJvHowwAd4w",
+      "thumbnail": "https://i.ytimg.com/vi/uJvHowwAd4w/hqdefault.jpg",
+      "publishedAt": "2026-04-26T00:00:58+00:00",
+      "updatedAt": "2026-04-26T00:00:59+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "츠캄 vs 뉴캣슬, 빌드실명제로 제대로 증명됩니다 [26.04.25 #1]",
+      "url": "https://www.youtube.com/watch?v=BdmVuYSGM1U",
+      "videoId": "BdmVuYSGM1U",
+      "thumbnail": "https://i.ytimg.com/vi/BdmVuYSGM1U/hqdefault.jpg",
+      "publishedAt": "2026-04-25T15:45:01+00:00",
+      "updatedAt": "2026-04-25T16:27:17+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "youtube",
+      "channelId": "UCNS486DlVIvdRgOxnCQdzmA",
+      "channelTitle": "이경민",
+      "title": "사람을 열받게 하는 방법 (자식 이름 바꿔부르기)",
+      "url": "https://www.youtube.com/watch?v=thpQuc4IO_A",
+      "videoId": "thpQuc4IO_A",
+      "thumbnail": "https://i.ytimg.com/vi/thpQuc4IO_A/hqdefault.jpg",
+      "publishedAt": "2026-04-23T09:01:30+00:00",
+      "updatedAt": "2026-04-24T07:50:42+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "한 소녀가 간절하게 바라고 있네요 안되겠습니다.. [26.04.22 #2]",
+      "url": "https://www.youtube.com/watch?v=UQ7rqZ8llbw",
+      "videoId": "UQ7rqZ8llbw",
+      "thumbnail": "https://i.ytimg.com/vi/UQ7rqZ8llbw/hqdefault.jpg",
+      "publishedAt": "2026-04-23T08:06:19+00:00",
+      "updatedAt": "2026-04-24T08:06:31+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "잘 먹는 그녀와 함께 닭 팝니다 [26.04.22 #1]",
+      "url": "https://www.youtube.com/watch?v=Tl4Yw8uycjQ",
+      "videoId": "Tl4Yw8uycjQ",
+      "thumbnail": "https://i.ytimg.com/vi/Tl4Yw8uycjQ/hqdefault.jpg",
+      "publishedAt": "2026-04-22T13:25:51+00:00",
+      "updatedAt": "2026-04-24T22:38:10+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "youtube",
+      "channelId": "UCNS486DlVIvdRgOxnCQdzmA",
+      "channelTitle": "이경민",
+      "title": "이경민이 돈을 아껴야 하는 충격적인 이유",
+      "url": "https://www.youtube.com/watch?v=0O2KrVvPL50",
+      "videoId": "0O2KrVvPL50",
+      "thumbnail": "https://i.ytimg.com/vi/0O2KrVvPL50/hqdefault.jpg",
+      "publishedAt": "2026-04-22T08:30:01+00:00",
+      "updatedAt": "2026-04-25T23:38:34+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "역대급 난이도 게임 '20시간 내로 클리어' 세키로 도전하겠습니다 [26.04.21]",
+      "url": "https://www.youtube.com/watch?v=XE0hqCP6mRg",
+      "videoId": "XE0hqCP6mRg",
+      "thumbnail": "https://i.ytimg.com/vi/XE0hqCP6mRg/hqdefault.jpg",
+      "publishedAt": "2026-04-22T03:19:54+00:00",
+      "updatedAt": "2026-04-24T17:04:03+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "youtube",
+      "channelId": "UCNS486DlVIvdRgOxnCQdzmA",
+      "channelTitle": "이경민",
+      "title": "이경민이 끼어들기를 못하는 이유",
+      "url": "https://www.youtube.com/watch?v=uUI8LwPN9g0",
+      "videoId": "uUI8LwPN9g0",
+      "thumbnail": "https://i.ytimg.com/vi/uUI8LwPN9g0/hqdefault.jpg",
+      "publishedAt": "2026-04-21T08:30:35+00:00",
+      "updatedAt": "2026-04-25T17:34:07+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "오늘은 이기고 돌아갈 수 있을까...[26.04.19 #1]",
+      "url": "https://www.youtube.com/watch?v=6t2ecOYyVvI",
+      "videoId": "6t2ecOYyVvI",
+      "thumbnail": "https://i.ytimg.com/vi/6t2ecOYyVvI/hqdefault.jpg",
+      "publishedAt": "2026-04-20T04:14:24+00:00",
+      "updatedAt": "2026-04-22T12:01:27+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "fulltube",
+      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
+      "channelTitle": "이경민의 풀영상",
+      "title": "늙은이와 놀아주는 젊은이들 [26.04.18 #2]",
+      "url": "https://www.youtube.com/watch?v=K3ECPaulK7k",
+      "videoId": "K3ECPaulK7k",
+      "thumbnail": "https://i.ytimg.com/vi/K3ECPaulK7k/hqdefault.jpg",
+      "publishedAt": "2026-04-20T04:07:30+00:00",
+      "updatedAt": "2026-04-22T12:56:26+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "youtube",
+      "channelId": "UCNS486DlVIvdRgOxnCQdzmA",
+      "channelTitle": "이경민",
+      "title": "4월초에 이미 여름 준비를 완벽하게 마친 에코스트리머",
+      "url": "https://www.youtube.com/watch?v=twrAU1-A928",
+      "videoId": "twrAU1-A928",
+      "thumbnail": "https://i.ytimg.com/vi/twrAU1-A928/hqdefault.jpg",
+      "publishedAt": "2026-04-20T03:01:01+00:00",
+      "updatedAt": "2026-04-21T13:12:45+00:00"
+    },
+    {
+      "name": "이경민",
+      "type": "youtube",
+      "channelId": "UCNS486DlVIvdRgOxnCQdzmA",
+      "channelTitle": "이경민",
+      "title": "사람을 열받게 하는 방법에는 몇가지 방법이 있는데...",
+      "url": "https://www.youtube.com/watch?v=q2CkrcEXYYA",
+      "videoId": "q2CkrcEXYYA",
+      "thumbnail": "https://i.ytimg.com/vi/q2CkrcEXYYA/hqdefault.jpg",
+      "publishedAt": "2026-04-19T08:21:24+00:00",
+      "updatedAt": "2026-04-21T20:31:05+00:00"
+    }
+  ],
   "errors": [
     {
       "source": {
@@ -11,22 +156,6 @@
         "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ"
       },
       "message": "500 Internal Server Error"
-    },
-    {
-      "source": {
-        "name": "이경민",
-        "type": "youtube",
-        "url": "https://www.youtube.com/channel/UCNS486DlVIvdRgOxnCQdzmA"
-      },
-      "message": "500 Internal Server Error"
-    },
-    {
-      "source": {
-        "name": "이경민",
-        "type": "fulltube",
-        "url": "https://www.youtube.com/channel/UCmUZd7y5B8uCBuX-uQrBgJw"
-      },
-      "message": "404 Not Found"
     },
     {
       "source": {
@@ -42,7 +171,7 @@
         "type": "youtube",
         "url": "https://www.youtube.com/channel/UCoBw6khRoeei_tgSBueVUXw"
       },
-      "message": "500 Internal Server Error"
+      "message": "404 Not Found"
     }
   ]
 }
