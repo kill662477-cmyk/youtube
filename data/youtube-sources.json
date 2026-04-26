@@ -1,30 +1,19 @@
 {
   "sources": [
-   {
-  "name": "김윤환",
-  "type": "youtube",
-  "url": "https://www.youtube.com/channel/UCMdZ5zu77smM21ZMh2PZDDQ",
-  "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ"
-},
     {
-      "name": "이경민",
-      "type": "youtube",
-      "url": "https://www.youtube.com/channel/UCNS486DlVIvdRgOxnCQdzmA"
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "url": "https://www.youtube.com/channel/UCvdskwSUZ3kUNVAAK-va_JQ"
     },
     {
-      "name": "이경민",
-      "type": "fulltube",
-      "url": "https://www.youtube.com/channel/UCmUZd7y5B8uCBuX-uQrBgJw"
+      "name": "츠캄몬스타즈 팬유튜브 2",
+      "type": "fan",
+      "url": "https://www.youtube.com/channel/UCScT2Alywz14zjs9vsyiEzg"
     },
     {
-      "name": "파도튜브",
-      "type": "youtube",
-      "url": "http://www.youtube.com/@padotube9207"
-    },
-    {
-      "name": "토마토",
-      "type": "youtube",
-      "url": "https://www.youtube.com/channel/UCoBw6khRoeei_tgSBueVUXw"
+      "name": "츠캄몬스타즈 팬유튜브 3",
+      "type": "fan",
+      "url": "https://www.youtube.com/channel/UCcEKr3U4RuuC97lVwajKs7A"
     }
   ]
 }
