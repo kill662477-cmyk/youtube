@@ -1,151 +1,48 @@
 {
-  "checkedAt": "2026-04-26 13:50:15",
-  "count": 12,
-  "items": [
+  "checkedAt": "2026-04-26 13:55:12",
+  "count": 0,
+  "items": [],
+  "errors": [
     {
-      "name": "이경민",
-      "type": "fulltube",
-      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
-      "channelTitle": "이경민의 풀영상",
-      "title": "판사님 저는 죄가 없습니다 [26.04.25 #2]",
-      "url": "https://www.youtube.com/watch?v=uJvHowwAd4w",
-      "videoId": "uJvHowwAd4w",
-      "thumbnail": "https://i.ytimg.com/vi/uJvHowwAd4w/hqdefault.jpg",
-      "publishedAt": "2026-04-26T00:00:58+00:00",
-      "updatedAt": "2026-04-26T00:00:59+00:00"
+      "source": {
+        "name": "김윤환",
+        "type": "youtube",
+        "url": "https://www.youtube.com/channel/UCMdZ5zu77smM21ZMh2PZDDQ",
+        "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ"
+      },
+      "message": "500 Internal Server Error"
     },
     {
-      "name": "김윤환",
-      "type": "youtube",
-      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
-      "channelTitle": "김윤환TV [풀영상]",
-      "title": "\"이의 있습니다!\" 역전재판을 노리는 학생과 전담교수들 ㅋㅋㅋ 【대학대전 재판 :: 26.04.25 #2 풀영상】",
-      "url": "https://www.youtube.com/watch?v=xmZxsrwz8cY",
-      "videoId": "xmZxsrwz8cY",
-      "thumbnail": "https://i.ytimg.com/vi/xmZxsrwz8cY/hqdefault.jpg",
-      "publishedAt": "2026-04-25T17:21:25+00:00",
-      "updatedAt": "2026-04-25T17:21:26+00:00"
+      "source": {
+        "name": "이경민",
+        "type": "youtube",
+        "url": "https://www.youtube.com/channel/UCNS486DlVIvdRgOxnCQdzmA"
+      },
+      "message": "500 Internal Server Error"
     },
     {
-      "name": "김윤환",
-      "type": "youtube",
-      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
-      "channelTitle": "김윤환TV [풀영상]",
-      "title": "빌드실명제 최초 도입, 패배의 책임.. 이젠 더이상 피할 수 없다! 【츠캄 몬스타즈 vs 뉴캣슬 대학대전 :: 26.04.25 #1 풀영상】",
-      "url": "https://www.youtube.com/watch?v=o3_Kq5E5ric",
-      "videoId": "o3_Kq5E5ric",
-      "thumbnail": "https://i.ytimg.com/vi/o3_Kq5E5ric/hqdefault.jpg",
-      "publishedAt": "2026-04-25T16:55:57+00:00",
-      "updatedAt": "2026-04-25T17:33:59+00:00"
+      "source": {
+        "name": "이경민",
+        "type": "fulltube",
+        "url": "https://www.youtube.com/channel/UCmUZd7y5B8uCBuX-uQrBgJw"
+      },
+      "message": "404 Not Found"
     },
     {
-      "name": "이경민",
-      "type": "fulltube",
-      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
-      "channelTitle": "이경민의 풀영상",
-      "title": "츠캄 vs 뉴캣슬, 빌드실명제로 제대로 증명됩니다 [26.04.25 #1]",
-      "url": "https://www.youtube.com/watch?v=BdmVuYSGM1U",
-      "videoId": "BdmVuYSGM1U",
-      "thumbnail": "https://i.ytimg.com/vi/BdmVuYSGM1U/hqdefault.jpg",
-      "publishedAt": "2026-04-25T15:45:01+00:00",
-      "updatedAt": "2026-04-25T16:27:17+00:00"
+      "source": {
+        "name": "파도튜브",
+        "type": "youtube",
+        "url": "http://www.youtube.com/@padotube9207"
+      },
+      "message": "404 Not Found"
     },
     {
-      "name": "토마토",
-      "type": "youtube",
-      "channelId": "UCoBw6khRoeei_tgSBueVUXw",
-      "channelTitle": "Fresh토마토",
-      "title": "역린을 건드려 버린 주하랑💢",
-      "url": "https://www.youtube.com/watch?v=uCZUDYwl2Ko",
-      "videoId": "uCZUDYwl2Ko",
-      "thumbnail": "https://i.ytimg.com/vi/uCZUDYwl2Ko/hqdefault.jpg",
-      "publishedAt": "2026-04-25T09:01:13+00:00",
-      "updatedAt": "2026-04-25T09:01:13+00:00"
-    },
-    {
-      "name": "이경민",
-      "type": "youtube",
-      "channelId": "UCNS486DlVIvdRgOxnCQdzmA",
-      "channelTitle": "이경민",
-      "title": "사람을 열받게 하는 방법 (자식 이름 바꿔부르기)",
-      "url": "https://www.youtube.com/watch?v=thpQuc4IO_A",
-      "videoId": "thpQuc4IO_A",
-      "thumbnail": "https://i.ytimg.com/vi/thpQuc4IO_A/hqdefault.jpg",
-      "publishedAt": "2026-04-23T09:01:30+00:00",
-      "updatedAt": "2026-04-24T07:50:42+00:00"
-    },
-    {
-      "name": "이경민",
-      "type": "fulltube",
-      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
-      "channelTitle": "이경민의 풀영상",
-      "title": "한 소녀가 간절하게 바라고 있네요 안되겠습니다.. [26.04.22 #2]",
-      "url": "https://www.youtube.com/watch?v=UQ7rqZ8llbw",
-      "videoId": "UQ7rqZ8llbw",
-      "thumbnail": "https://i.ytimg.com/vi/UQ7rqZ8llbw/hqdefault.jpg",
-      "publishedAt": "2026-04-23T08:06:19+00:00",
-      "updatedAt": "2026-04-24T08:06:31+00:00"
-    },
-    {
-      "name": "김윤환",
-      "type": "youtube",
-      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
-      "channelTitle": "김윤환TV [풀영상]",
-      "title": "븅저더블과 동원더블의 대결 ㅋㅋㅋ 【암먼클참 윷놀이&모마  :: 26.04.22 #4 풀영상】",
-      "url": "https://www.youtube.com/watch?v=urRR6gFGY9M",
-      "videoId": "urRR6gFGY9M",
-      "thumbnail": "https://i.ytimg.com/vi/urRR6gFGY9M/hqdefault.jpg",
-      "publishedAt": "2026-04-22T23:49:01+00:00",
-      "updatedAt": "2026-04-25T00:17:11+00:00"
-    },
-    {
-      "name": "김윤환",
-      "type": "youtube",
-      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
-      "channelTitle": "김윤환TV [풀영상]",
-      "title": "덕몽어스에서 염원이 이루어진 슬돌이 ㅋㅋㅋㅋㅋ 【덕몽어스 :: 26.04.22 #3 풀영상】",
-      "url": "https://www.youtube.com/watch?v=R5BOlInEnB0",
-      "videoId": "R5BOlInEnB0",
-      "thumbnail": "https://i.ytimg.com/vi/R5BOlInEnB0/hqdefault.jpg",
-      "publishedAt": "2026-04-22T23:05:55+00:00",
-      "updatedAt": "2026-04-25T16:17:23+00:00"
-    },
-    {
-      "name": "김윤환",
-      "type": "youtube",
-      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
-      "channelTitle": "김윤환TV [풀영상]",
-      "title": "죄송합니다.. 1시간 동안 맞겠습니다. 【참회의 시간 :: 26.04.22 #2 풀영상】",
-      "url": "https://www.youtube.com/watch?v=pQQOxNr3Vho",
-      "videoId": "pQQOxNr3Vho",
-      "thumbnail": "https://i.ytimg.com/vi/pQQOxNr3Vho/hqdefault.jpg",
-      "publishedAt": "2026-04-22T22:43:47+00:00",
-      "updatedAt": "2026-04-24T16:01:16+00:00"
-    },
-    {
-      "name": "김윤환",
-      "type": "youtube",
-      "channelId": "UCMdZ5zu77smM21ZMh2PZDDQ",
-      "channelTitle": "김윤환TV [풀영상]",
-      "title": "25일 뉴캣슬전, 오늘 경기 결과로 담당 교수가 정해집니다. 【츠캄 시빌워 :: 26.04.22 #1 풀영상】",
-      "url": "https://www.youtube.com/watch?v=dN15mjX0LeQ",
-      "videoId": "dN15mjX0LeQ",
-      "thumbnail": "https://i.ytimg.com/vi/dN15mjX0LeQ/hqdefault.jpg",
-      "publishedAt": "2026-04-22T20:04:26+00:00",
-      "updatedAt": "2026-04-25T22:10:36+00:00"
-    },
-    {
-      "name": "이경민",
-      "type": "fulltube",
-      "channelId": "UCmUZd7y5B8uCBuX-uQrBgJw",
-      "channelTitle": "이경민의 풀영상",
-      "title": "잘 먹는 그녀와 함께 닭 팝니다 [26.04.22 #1]",
-      "url": "https://www.youtube.com/watch?v=Tl4Yw8uycjQ",
-      "videoId": "Tl4Yw8uycjQ",
-      "thumbnail": "https://i.ytimg.com/vi/Tl4Yw8uycjQ/hqdefault.jpg",
-      "publishedAt": "2026-04-22T13:25:51+00:00",
-      "updatedAt": "2026-04-24T22:38:10+00:00"
+      "source": {
+        "name": "토마토",
+        "type": "youtube",
+        "url": "https://www.youtube.com/channel/UCoBw6khRoeei_tgSBueVUXw"
+      },
+      "message": "500 Internal Server Error"
     }
-  ],
-  "errors": []
+  ]
 }
