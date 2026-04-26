@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-04-26 15:20:19",
+  "checkedAt": "2026-04-26 15:25:16",
   "count": 0,
   "items": [],
   "errors": [
@@ -18,7 +18,7 @@
         "type": "youtube",
         "url": "https://www.youtube.com/channel/UCNS486DlVIvdRgOxnCQdzmA"
       },
-      "message": "404 Not Found"
+      "message": "500 Internal Server Error"
     },
     {
       "source": {
@@ -42,7 +42,7 @@
         "type": "youtube",
         "url": "https://www.youtube.com/channel/UCoBw6khRoeei_tgSBueVUXw"
       },
-      "message": "404 Not Found"
+      "message": "500 Internal Server Error"
     }
   ]
 }
