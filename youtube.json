@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-04-27 10:50:16",
+  "checkedAt": "2026-04-27 11:00:24",
   "count": 0,
   "items": [],
   "errors": [
@@ -17,7 +17,7 @@
         "type": "fan",
         "url": "https://www.youtube.com/channel/UCScT2Alywz14zjs9vsyiEzg"
       },
-      "message": "500 Internal Server Error"
+      "message": "404 Not Found"
     },
     {
       "source": {
