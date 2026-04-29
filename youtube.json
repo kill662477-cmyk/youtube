@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-04-29 11:40:15",
+  "checkedAt": "2026-04-29 11:50:16",
   "count": 0,
   "items": [],
   "errors": [
@@ -16,14 +16,6 @@
         "name": "츠캄몬스타즈 팬유튜브 2",
         "type": "fan",
         "url": "https://www.youtube.com/channel/UCScT2Alywz14zjs9vsyiEzg"
-      },
-      "message": "500 Internal Server Error"
-    },
-    {
-      "source": {
-        "name": "츠캄몬스타즈 팬유튜브 3",
-        "type": "fan",
-        "url": "https://www.youtube.com/channel/UCcEKr3U4RuuC97lVwajKs7A"
       },
       "message": "404 Not Found"
     }
