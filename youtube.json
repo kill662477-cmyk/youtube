@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-05-02 08:40:14",
+  "checkedAt": "2026-05-02 08:50:14",
   "count": 24,
   "items": [
     {
@@ -291,14 +291,5 @@
       "updatedAt": "2026-04-30T01:41:59+00:00"
     }
   ],
-  "errors": [
-    {
-      "source": {
-        "name": "츠캄몬스타즈 팬유튜브 3",
-        "type": "fan",
-        "url": "https://www.youtube.com/channel/UCcEKr3U4RuuC97lVwajKs7A"
-      },
-      "message": "404 Not Found"
-    }
-  ]
+  "errors": []
 }
