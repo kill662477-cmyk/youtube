@@ -1,7 +1,19 @@
 {
-  "checkedAt": "2026-05-03 00:40:14",
+  "checkedAt": "2026-05-03 00:50:18",
   "count": 24,
   "items": [
+    {
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] '바로, 여기 (Right Here, Right Now)' 츠캄몬스타즈 응원 뮤비-로그(MV-log)",
+      "url": "https://www.youtube.com/watch?v=u5g4U5Ttb9U",
+      "videoId": "u5g4U5Ttb9U",
+      "thumbnail": "https://i.ytimg.com/vi/u5g4U5Ttb9U/hqdefault.jpg",
+      "publishedAt": "2026-05-02T15:39:17+00:00",
+      "updatedAt": "2026-05-02T15:39:59+00:00"
+    },
     {
       "name": "츠캄몬스타즈 팬유튜브 1",
       "type": "fan",
@@ -277,18 +289,6 @@
       "thumbnail": "https://i.ytimg.com/vi/QYmIKs19SjM/hqdefault.jpg",
       "publishedAt": "2026-01-30T17:09:51+00:00",
       "updatedAt": "2026-04-29T05:34:01+00:00"
-    },
-    {
-      "name": "츠캄몬스타즈 팬유튜브 2",
-      "type": "fan",
-      "channelId": "UCScT2Alywz14zjs9vsyiEzg",
-      "channelTitle": "츠캄팬튜브 TsuCalm Fantube",
-      "title": "김윤환 디시트 (Deceit)",
-      "url": "https://www.youtube.com/watch?v=XB4ZfAFqkXI",
-      "videoId": "XB4ZfAFqkXI",
-      "thumbnail": "https://i.ytimg.com/vi/XB4ZfAFqkXI/hqdefault.jpg",
-      "publishedAt": "2026-01-30T06:39:00+00:00",
-      "updatedAt": "2026-04-30T01:41:59+00:00"
     }
   ],
   "errors": []
