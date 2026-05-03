@@ -1,16 +1,16 @@
 [
   {
-    "name": "츠캄몬스타즈 팬유튜브 1",
+    "name": "츠캄팬튜브1",
     "type": "fan",
     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvdskwSUZ3kUNVAAK-va_JQ"
   },
   {
-    "name": "츠캄몬스타즈 팬유튜브 2",
+    "name": "츠캄팬튜브2",
     "type": "fan",
     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCScT2Alywz14zjs9vsyiEzg"
   },
   {
-    "name": "츠캄몬스타즈 팬유튜브 3",
+    "name": "츠캄팬튜브3",
     "type": "fan",
     "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcEKr3U4RuuC97lVwajKs7A"
   }
