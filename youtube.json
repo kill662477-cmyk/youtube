@@ -1,31 +1,6 @@
 {
-  "checkedAt": "2026-05-03 13:47:47",
+  "checkedAt": "2026-05-03 13:49:36",
   "count": 0,
   "items": [],
-  "errors": [
-    {
-      "source": {
-        "name": "츠캄몬스타즈 팬유튜브 1",
-        "type": "fan",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvdskwSUZ3kUNVAAK-va_JQ"
-      },
-      "message": "404 Not Found"
-    },
-    {
-      "source": {
-        "name": "츠캄몬스타즈 팬유튜브 2",
-        "type": "fan",
-        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCScT2Alywz14zjs9vsyiEzg"
-      },
-      "message": "404 Not Found"
-    },
-    {
-      "source": {
-        "name": "츠캄몬스타즈 팬유튜브 3",
-        "type": "fan",
-        "url": "https://www.youtube.com/channel/UCcEKr3U4RuuC97lVwajKs7A"
-      },
-      "message": "404 Not Found"
-    }
-  ]
+  "errors": []
 }
