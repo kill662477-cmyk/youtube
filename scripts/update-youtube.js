@@ -30,7 +30,6 @@ function extractTag(xml, tag) {
   const match = xml.match(
     new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i")
   );
-
   return match
     ? decodeHtml(
         match[1]
@@ -54,18 +53,14 @@ function extractVideoId(entryXml) {
 }
 
 async function fetchText(url) {
-  const response = await fetch(url, {
+  const res = await fetch(url, {
     headers: {
-      "user-agent": "Mozilla/5.0 YouTube feed updater",
+      "user-agent": "Mozilla/5.0",
       accept: "application/xml,text/xml,text/html,*/*;q=0.8",
     },
   });
-
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText}`);
-  }
-
-  return await response.text();
+  if (!res.ok) throw new Error(`${res.status} ${res.statusText}`);
+  return await res.text();
 }
 
 function channelIdFromUrl(url) {
@@ -91,12 +86,16 @@ async function resolveChannelId(url) {
     /\/channel\/(UC[\w-]+)/,
   ];
 
-  for (const pattern of patterns) {
-    const match = html.match(pattern);
-    if (match) return match[1];
+  for (const p of patterns) {
+    const m = html.match(p);
+    if (m) return m[1];
   }
 
-  throw new Error(`채널 ID를 찾지 못했습니다: ${url}`);
+  throw new Error(`채널 ID 못찾음: ${url}`);
+}
+
+function uploadsPlaylistId(channelId) {
+  return channelId.replace(/^UC/, "UU");
 }
 
 function normalizeSources(data) {
@@ -107,7 +106,12 @@ function normalizeSources(data) {
 
 async function fetchFeed(source) {
   const channelId = await resolveChannelId(source.url);
-  const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+  const playlistId = uploadsPlaylistId(channelId);
+
+  console.log(`${source.name} channelId=${channelId}`);
+  console.log(`${source.name} playlistId=${playlistId}`);
+
+  const feedUrl = `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`;
   const xml = await fetchText(feedUrl);
 
   const entries = [...xml.matchAll(/<entry[\s\S]*?<\/entry>/g)].map(
@@ -124,7 +128,6 @@ async function fetchFeed(source) {
       name: source.name,
       type: source.type,
       channelId,
-      channelTitle: extractTag(entry, "name") || source.name,
       title: extractTag(entry, "title"),
       url: videoId ? `https://www.youtube.com/watch?v=${videoId}` : link,
       videoId,
@@ -145,23 +148,14 @@ async function main() {
   const allItems = [];
   const errors = [];
 
-  if (!sources.length) {
-    errors.push({
-      message: "youtube-sources.json에서 sources를 찾지 못했습니다.",
-    });
-  }
-
   for (const source of sources) {
     try {
       const items = await fetchFeed(source);
       allItems.push(...items);
-      console.log(`OK ${source.name} ${source.type}: ${items.length}개`);
-    } catch (error) {
-      console.log(`FAIL ${source.name} ${source.type}: ${error.message}`);
-      errors.push({
-        source,
-        message: error.message,
-      });
+      console.log(`OK ${source.name}: ${items.length}개`);
+    } catch (err) {
+      console.log(`FAIL ${source.name}: ${err.message}`);
+      errors.push({ source, message: err.message });
     }
   }
 
@@ -200,7 +194,7 @@ async function main() {
   console.log(`youtube.json 생성 완료: ${items.length}개`);
 }
 
-main().catch((error) => {
-  console.error(error);
+main().catch((err) => {
+  console.error(err);
   process.exit(1);
 });
