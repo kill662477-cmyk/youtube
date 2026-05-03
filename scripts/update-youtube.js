@@ -199,8 +199,18 @@ function textFromRuns(obj) {
 function walkVideoRenderers(obj, out = []) {
   if (!obj || typeof obj !== "object") return out;
 
-  if (obj.videoRenderer && obj.videoRenderer.videoId) {
-    out.push(obj.videoRenderer);
+  const keys = [
+    "videoRenderer",
+    "gridVideoRenderer",
+    "compactVideoRenderer",
+    "playlistVideoRenderer",
+    "reelItemRenderer",
+  ];
+
+  for (const key of keys) {
+    if (obj[key] && obj[key].videoId) {
+      out.push(obj[key]);
+    }
   }
 
   for (const v of Object.values(obj)) {
@@ -214,46 +224,91 @@ function walkVideoRenderers(obj, out = []) {
   return out;
 }
 
-async function fetchVideosPage(source, channelId) {
-  const base = cleanUrl(source.url);
-  const videosUrl = base.includes("/videos") ? base : `${base}/videos`;
+function titleFromRenderer(v) {
+  return (
+    textFromRuns(v.title) ||
+    textFromRuns(v.headline) ||
+    textFromRuns(v.accessibility?.accessibilityData) ||
+    ""
+  );
+}
 
-  const html = await fetchText(videosUrl);
-  const jsonText = extractJsonObjectFromHtml(html, "ytInitialData");
+function publishedTextFromRenderer(v) {
+  return (
+    textFromRuns(v.publishedTimeText) ||
+    textFromRuns(v.shortBylineText) ||
+    ""
+  );
+}
 
-  if (!jsonText) throw new Error("ytInitialData 못찾음");
+function addHtmlRegexVideos(html, source, channelId, unique) {
+  const ids = [...html.matchAll(/"videoId":"([^"]{11})"/g)].map((m) => m[1]);
+  const seen = new Set();
 
-  const data = JSON.parse(jsonText);
-  const renderers = walkVideoRenderers(data);
-  const unique = new Map();
-
-  for (const v of renderers) {
-    const videoId = v.videoId;
-    if (!videoId || unique.has(videoId)) continue;
-
-    const title = textFromRuns(v.title);
-    if (!title) continue;
-
-    const thumbs = v.thumbnail?.thumbnails || [];
-    const thumbnail =
-      thumbs.length > 0
-        ? thumbs[thumbs.length - 1].url
-        : `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+  for (const videoId of ids) {
+    if (seen.has(videoId)) continue;
+    seen.add(videoId);
+    if (unique.has(videoId)) continue;
 
     unique.set(videoId, {
       name: source.name,
       type: source.type,
       channelId,
       channelTitle: source.name,
-      title,
+      title: "",
       url: `https://www.youtube.com/watch?v=${videoId}`,
       videoId,
-      thumbnail,
+      thumbnail: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
       publishedAt: "",
       updatedAt: "",
-      publishedText: textFromRuns(v.publishedTimeText),
-      sourceMethod: "videos-page",
+      publishedText: "",
+      sourceMethod: "videos-page-regex",
     });
+  }
+}
+
+async function fetchVideosPage(source, channelId) {
+  const base = cleanUrl(source.url);
+  const videosUrl = base.includes("/videos") ? base : `${base}/videos`;
+
+  const html = await fetchText(videosUrl);
+  const jsonText = extractJsonObjectFromHtml(html, "ytInitialData");
+  const unique = new Map();
+
+  if (jsonText) {
+    const data = JSON.parse(jsonText);
+    const renderers = walkVideoRenderers(data);
+
+    for (const v of renderers) {
+      const videoId = v.videoId;
+      if (!videoId || unique.has(videoId)) continue;
+
+      const title = titleFromRenderer(v);
+      const thumbs = v.thumbnail?.thumbnails || [];
+      const thumbnail =
+        thumbs.length > 0
+          ? thumbs[thumbs.length - 1].url
+          : `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`;
+
+      unique.set(videoId, {
+        name: source.name,
+        type: source.type,
+        channelId,
+        channelTitle: source.name,
+        title,
+        url: `https://www.youtube.com/watch?v=${videoId}`,
+        videoId,
+        thumbnail,
+        publishedAt: "",
+        updatedAt: "",
+        publishedText: publishedTextFromRenderer(v),
+        sourceMethod: "videos-page",
+      });
+    }
+  }
+
+  if (!unique.size) {
+    addHtmlRegexVideos(html, source, channelId, unique);
   }
 
   const items = [...unique.values()];
