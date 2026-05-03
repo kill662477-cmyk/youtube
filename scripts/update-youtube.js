@@ -5,8 +5,7 @@ const OUTPUT_FILE = "youtube.json";
 const MAX_ITEMS = 24;
 
 function nowKST() {
-  const date = new Date();
-  const parts = new Intl.DateTimeFormat("sv-SE", {
+  return new Intl.DateTimeFormat("sv-SE", {
     timeZone: "Asia/Seoul",
     year: "numeric",
     month: "2-digit",
@@ -15,8 +14,7 @@ function nowKST() {
     minute: "2-digit",
     second: "2-digit",
     hour12: false,
-  }).format(date);
-  return parts;
+  }).format(new Date());
 }
 
 function decodeHtml(text = "") {
@@ -29,29 +27,55 @@ function decodeHtml(text = "") {
 }
 
 function extractTag(xml, tag) {
-  const match = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
-  return match ? decodeHtml(match[1].replace(/^<!\[CDATA\[/, "").replace(/\]\]>$/, "").trim()) : "";
+  const match = xml.match(
+    new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i")
+  );
+
+  return match
+    ? decodeHtml(
+        match[1]
+          .replace(/^<!\[CDATA\[/, "")
+          .replace(/\]\]>$/, "")
+          .trim()
+      )
+    : "";
+}
+
+function extractAttr(xml, tag, attr) {
+  const match = xml.match(
+    new RegExp(`<${tag}[^>]*\\s${attr}=["']([^"']+)["'][^>]*>`, "i")
+  );
+  return match ? decodeHtml(match[1]) : "";
 }
 
 function extractVideoId(entryXml) {
   const id = extractTag(entryXml, "yt:videoId") || extractTag(entryXml, "id");
-  return id.replace("yt:video:", "");
+  return id.replace("yt:video:", "").trim();
 }
 
 async function fetchText(url) {
   const response = await fetch(url, {
     headers: {
       "user-agent": "Mozilla/5.0 YouTube feed updater",
-      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      accept: "application/xml,text/xml,text/html,*/*;q=0.8",
     },
   });
-  if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+
+  if (!response.ok) {
+    throw new Error(`${response.status} ${response.statusText}`);
+  }
+
   return await response.text();
 }
 
 function channelIdFromUrl(url) {
+  const feed = url.match(/[?&]channel_id=(UC[\w-]+)/i);
+  if (feed) return feed[1];
+
   const direct = url.match(/youtube\.com\/channel\/(UC[\w-]+)/i);
-  return direct ? direct[1] : "";
+  if (direct) return direct[1];
+
+  return "";
 }
 
 async function resolveChannelId(url) {
@@ -59,6 +83,7 @@ async function resolveChannelId(url) {
   if (direct) return direct;
 
   const html = await fetchText(url);
+
   const patterns = [
     /"channelId":"(UC[\w-]+)"/,
     /"externalId":"(UC[\w-]+)"/,
@@ -74,23 +99,38 @@ async function resolveChannelId(url) {
   throw new Error(`채널 ID를 찾지 못했습니다: ${url}`);
 }
 
+function normalizeSources(data) {
+  if (Array.isArray(data)) return data;
+  if (Array.isArray(data.sources)) return data.sources;
+  return [];
+}
+
 async function fetchFeed(source) {
   const channelId = await resolveChannelId(source.url);
   const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
   const xml = await fetchText(feedUrl);
-  const entries = [...xml.matchAll(/<entry[\s\S]*?<\/entry>/g)].map(m => m[0]);
+
+  const entries = [...xml.matchAll(/<entry[\s\S]*?<\/entry>/g)].map(
+    (m) => m[0]
+  );
 
   return entries.map((entry) => {
     const videoId = extractVideoId(entry);
+    const link =
+      extractAttr(entry, "link", "href") ||
+      (videoId ? `https://www.youtube.com/watch?v=${videoId}` : "");
+
     return {
       name: source.name,
       type: source.type,
       channelId,
       channelTitle: extractTag(entry, "name") || source.name,
       title: extractTag(entry, "title"),
-      url: videoId ? `https://www.youtube.com/watch?v=${videoId}` : extractTag(entry, "link"),
+      url: videoId ? `https://www.youtube.com/watch?v=${videoId}` : link,
       videoId,
-      thumbnail: videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : "",
+      thumbnail: videoId
+        ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+        : "",
       publishedAt: extractTag(entry, "published"),
       updatedAt: extractTag(entry, "updated"),
     };
@@ -98,37 +138,64 @@ async function fetchFeed(source) {
 }
 
 async function main() {
-  const data = JSON.parse(fs.readFileSync(SOURCE_FILE, "utf8"));
+  const raw = fs.readFileSync(SOURCE_FILE, "utf8");
+  const data = JSON.parse(raw);
+  const sources = normalizeSources(data);
+
   const allItems = [];
   const errors = [];
 
-  for (const source of data.sources || []) {
+  if (!sources.length) {
+    errors.push({
+      message: "youtube-sources.json에서 sources를 찾지 못했습니다.",
+    });
+  }
+
+  for (const source of sources) {
     try {
       const items = await fetchFeed(source);
       allItems.push(...items);
       console.log(`OK ${source.name} ${source.type}: ${items.length}개`);
     } catch (error) {
       console.log(`FAIL ${source.name} ${source.type}: ${error.message}`);
-      errors.push({ source, message: error.message });
+      errors.push({
+        source,
+        message: error.message,
+      });
     }
   }
 
   const unique = new Map();
+
   for (const item of allItems) {
     if (!item.videoId) continue;
-    if (!unique.has(item.videoId)) unique.set(item.videoId, item);
+    if (!unique.has(item.videoId)) {
+      unique.set(item.videoId, item);
+    }
   }
 
   const items = [...unique.values()]
-    .sort((a, b) => new Date(b.publishedAt || b.updatedAt) - new Date(a.publishedAt || a.updatedAt))
+    .sort(
+      (a, b) =>
+        new Date(b.publishedAt || b.updatedAt || 0) -
+        new Date(a.publishedAt || a.updatedAt || 0)
+    )
     .slice(0, MAX_ITEMS);
 
-  fs.writeFileSync(OUTPUT_FILE, JSON.stringify({
-    checkedAt: nowKST(),
-    count: items.length,
-    items,
-    errors,
-  }, null, 2), "utf8");
+  fs.writeFileSync(
+    OUTPUT_FILE,
+    JSON.stringify(
+      {
+        checkedAt: nowKST(),
+        count: items.length,
+        items,
+        errors,
+      },
+      null,
+      2
+    ),
+    "utf8"
+  );
 
   console.log(`youtube.json 생성 완료: ${items.length}개`);
 }
