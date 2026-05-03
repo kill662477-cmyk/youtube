@@ -93,9 +93,8 @@ async function resolveChannelId(url) {
 
   throw new Error(`채널 ID 못찾음: ${url}`);
 }
-
 function uploadsPlaylistId(channelId) {
-  return channelId.replace(/^UC/, "UU");
+  return "UU" + channelId.replace(/^UC/, "");
 }
 
 function normalizeSources(data) {
