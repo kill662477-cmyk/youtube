@@ -1,6 +1,31 @@
 {
-  "checkedAt": "2026-05-03 13:52:09",
+  "checkedAt": "2026-05-03 13:55:22",
   "count": 0,
   "items": [],
-  "errors": []
+  "errors": [
+    {
+      "source": {
+        "name": "츠캄팬튜브1",
+        "type": "fan",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCvdskwSUZ3kUNVAAK-va_JQ"
+      },
+      "message": "404 Not Found"
+    },
+    {
+      "source": {
+        "name": "츠캄팬튜브2",
+        "type": "fan",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCScT2Alywz14zjs9vsyiEzg"
+      },
+      "message": "404 Not Found"
+    },
+    {
+      "source": {
+        "name": "츠캄팬튜브3",
+        "type": "fan",
+        "url": "https://www.youtube.com/feeds/videos.xml?channel_id=UCcEKr3U4RuuC97lVwajKs7A"
+      },
+      "message": "404 Not Found"
+    }
+  ]
 }
