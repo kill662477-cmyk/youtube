@@ -282,11 +282,23 @@ async function fetchFeed(source) {
   }
 }
 
+function readPreviousItems() {
+  if (!fs.existsSync(OUTPUT_FILE)) return [];
+
+  try {
+    const prev = JSON.parse(fs.readFileSync(OUTPUT_FILE, "utf8"));
+    return Array.isArray(prev.items) ? prev.items : [];
+  } catch {
+    return [];
+  }
+}
+
 async function main() {
   const raw = fs.readFileSync(SOURCE_FILE, "utf8");
   const data = JSON.parse(raw);
   const sources = normalizeSources(data);
 
+  const previousItems = readPreviousItems();
   const allItems = [];
   const errors = [];
 
@@ -297,11 +309,22 @@ async function main() {
   for (const source of sources) {
     try {
       const items = await fetchFeed(source);
+
+      if (!items.length) throw new Error("영상 0개");
+
       allItems.push(...items);
       console.log(`OK ${source.name}: ${items.length}개`);
     } catch (err) {
       console.log(`FAIL ${source.name}: ${err.message}`);
-      errors.push({ source, message: err.message });
+
+      const oldItems = previousItems.filter((item) => item.name === source.name);
+
+      if (oldItems.length) {
+        allItems.push(...oldItems);
+        console.log(`KEEP ${source.name}: 기존 데이터 ${oldItems.length}개 유지`);
+      } else {
+        errors.push({ source, message: err.message });
+      }
     }
   }
 
