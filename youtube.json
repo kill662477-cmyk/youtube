@@ -1,7 +1,19 @@
 {
-  "checkedAt": "2026-05-06 02:50:18",
+  "checkedAt": "2026-05-06 03:00:28",
   "count": 24,
   "items": [
+    {
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] '그 계절에 우리가 있었어 (Golden Days)' 츠캄몬스타즈 뮤비 (MV)",
+      "url": "https://www.youtube.com/watch?v=6rUhIu7tlak",
+      "videoId": "6rUhIu7tlak",
+      "thumbnail": "https://i.ytimg.com/vi/6rUhIu7tlak/hqdefault.jpg",
+      "publishedAt": "2026-05-05T17:42:18+00:00",
+      "updatedAt": "2026-05-05T17:42:27+00:00"
+    },
     {
       "name": "츠캄몬스타즈 팬유튜브 1",
       "type": "fan",
@@ -277,18 +289,6 @@
       "thumbnail": "https://i.ytimg.com/vi/d032xSmiWgg/hqdefault.jpg",
       "publishedAt": "2026-01-30T18:45:38+00:00",
       "updatedAt": "2026-04-29T20:21:54+00:00"
-    },
-    {
-      "name": "츠캄몬스타즈 팬유튜브 1",
-      "type": "fan",
-      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
-      "channelTitle": "KINKON",
-      "title": "[SUB] 'We Made It' 츠캄몬스타즈 응원가 (MV)",
-      "url": "https://www.youtube.com/watch?v=QYmIKs19SjM",
-      "videoId": "QYmIKs19SjM",
-      "thumbnail": "https://i.ytimg.com/vi/QYmIKs19SjM/hqdefault.jpg",
-      "publishedAt": "2026-01-30T17:09:51+00:00",
-      "updatedAt": "2026-04-29T05:34:01+00:00"
     }
   ],
   "errors": []
