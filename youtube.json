@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-05-06 15:30:20",
+  "checkedAt": "2026-05-06 15:40:22",
   "count": 15,
   "items": [
     {
@@ -190,7 +190,7 @@
         "type": "fan",
         "url": "https://www.youtube.com/channel/UCvdskwSUZ3kUNVAAK-va_JQ"
       },
-      "message": "404 Not Found"
+      "message": "500 Internal Server Error"
     }
   ]
 }
