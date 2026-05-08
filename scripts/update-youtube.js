@@ -35,12 +35,25 @@ function cleanText(text = "") {
 }
 
 function extractTag(xml, tag) {
-  const match = xml.match(new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i"));
-  return match ? decodeHtml(match[1].replace(/^<!\[CDATA\[/, "").replace(/\]\]>$/, "").trim()) : "";
+  const match = xml.match(
+    new RegExp(`<${tag}[^>]*>([\\s\\S]*?)<\\/${tag}>`, "i")
+  );
+
+  return match
+    ? decodeHtml(
+        match[1]
+          .replace(/^<!\[CDATA\[/, "")
+          .replace(/\]\]>$/, "")
+          .trim()
+      )
+    : "";
 }
 
 function extractVideoId(entryXml) {
-  const id = extractTag(entryXml, "yt:videoId") || extractTag(entryXml, "id");
+  const id =
+    extractTag(entryXml, "yt:videoId") ||
+    extractTag(entryXml, "id");
+
   return id.replace("yt:video:", "");
 }
 
@@ -48,25 +61,33 @@ async function fetchText(url) {
   const response = await fetch(url, {
     headers: {
       "user-agent": "Mozilla/5.0 YouTube feed updater",
-      "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "accept-language": "ko-KR,ko;q=0.9,en-US;q=0.8",
+      "accept":
+        "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+      "accept-language":
+        "ko-KR,ko;q=0.9,en-US;q=0.8",
     },
   });
 
   if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText}`);
+    throw new Error(
+      `${response.status} ${response.statusText}`
+    );
   }
 
   return await response.text();
 }
 
 function channelIdFromUrl(url) {
-  const direct = url.match(/youtube\.com\/channel\/(UC[\w-]+)/i);
+  const direct = url.match(
+    /youtube\.com\/channel\/(UC[\w-]+)/i
+  );
+
   return direct ? direct[1] : "";
 }
 
 async function resolveChannelId(url) {
   const direct = channelIdFromUrl(url);
+
   if (direct) return direct;
 
   const html = await fetchText(url);
@@ -80,41 +101,148 @@ async function resolveChannelId(url) {
 
   for (const pattern of patterns) {
     const match = html.match(pattern);
+
     if (match) return match[1];
   }
 
-  throw new Error(`채널 ID를 찾지 못했습니다: ${url}`);
+  throw new Error(
+    `채널 ID를 찾지 못했습니다: ${url}`
+  );
 }
 
+//////////////////////////////////////////////////////
+// 시간 통일용
+//////////////////////////////////////////////////////
+
+function timeAgo(dateString) {
+  const date = new Date(dateString);
+
+  if (Number.isNaN(date.getTime())) return "";
+
+  const diff = Math.max(
+    0,
+    Math.floor((new Date() - date) / 1000)
+  );
+
+  const minute = 60;
+  const hour = 60 * minute;
+  const day = 24 * hour;
+  const week = 7 * day;
+  const month = 30 * day;
+  const year = 365 * day;
+
+  if (diff < minute) return "방금 전";
+
+  if (diff < hour) {
+    return `${Math.floor(diff / minute)}분 전`;
+  }
+
+  if (diff < day) {
+    return `${Math.floor(diff / hour)}시간 전`;
+  }
+
+  if (diff < week) {
+    return `${Math.floor(diff / day)}일 전`;
+  }
+
+  if (diff < month) {
+    return `${Math.floor(diff / week)}주 전`;
+  }
+
+  if (diff < year) {
+    return `${Math.floor(diff / month)}개월 전`;
+  }
+
+  return `${Math.floor(diff / year)}년 전`;
+}
+
+function extractAgeText(publishedText = "") {
+  const parts = String(
+    publishedText || ""
+  ).split("•");
+
+  return cleanText(
+    parts[parts.length - 1] || publishedText
+  );
+}
+
+//////////////////////////////////////////////////////
+// RSS
+//////////////////////////////////////////////////////
+
 async function fetchFeed(source) {
-  const channelId = await resolveChannelId(source.url);
-  const feedUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+  const channelId = await resolveChannelId(
+    source.url
+  );
+
+  const feedUrl =
+    `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
+
   const xml = await fetchText(feedUrl);
 
-  const entries = [...xml.matchAll(/<entry[\s\S]*?<\/entry>/g)].map((m) => m[0]);
+  const entries = [
+    ...xml.matchAll(/<entry[\s\S]*?<\/entry>/g),
+  ].map((m) => m[0]);
 
   return entries.map((entry) => {
     const videoId = extractVideoId(entry);
 
+    const channelTitle =
+      extractTag(entry, "name") ||
+      source.name;
+
+    const publishedAt =
+      extractTag(entry, "published");
+
+    const displayDate =
+      timeAgo(publishedAt);
+
     return {
       source: "youtube",
       sourceMethod: "rss",
+
       name: source.name,
       type: source.type,
+
       channelId,
-      channelTitle: extractTag(entry, "name") || source.name,
+      channelTitle,
+
       title: extractTag(entry, "title"),
-      url: videoId ? `https://www.youtube.com/watch?v=${videoId}` : extractTag(entry, "link"),
+
+      url: videoId
+        ? `https://www.youtube.com/watch?v=${videoId}`
+        : extractTag(entry, "link"),
+
       videoId,
-      thumbnail: videoId ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg` : "",
-      publishedAt: extractTag(entry, "published"),
-      updatedAt: extractTag(entry, "updated"),
+
+      thumbnail: videoId
+        ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+        : "",
+
+      publishedAt,
+
+      updatedAt: extractTag(
+        entry,
+        "updated"
+      ),
+
+      displayDate,
+
+      displayMeta:
+        `${channelTitle} · ${displayDate}`,
     };
   });
 }
 
+//////////////////////////////////////////////////////
+// 캄린이
+//////////////////////////////////////////////////////
+
 function extractInitialData(html) {
-  const match = html.match(/var ytInitialData = (\{[\s\S]*?\});<\/script>/);
+  const match = html.match(
+    /var ytInitialData = (\{[\s\S]*?\});<\/script>/
+  );
+
   if (!match) return null;
 
   try {
@@ -124,15 +252,23 @@ function extractInitialData(html) {
   }
 }
 
-function findVideoItems(obj, results = []) {
-  if (!obj || typeof obj !== "object") return results;
+function findVideoItems(
+  obj,
+  results = []
+) {
+  if (!obj || typeof obj !== "object") {
+    return results;
+  }
 
   if (obj.playlistVideoRenderer) {
     results.push(obj.playlistVideoRenderer);
   }
 
   for (const value of Object.values(obj)) {
-    if (value && typeof value === "object") {
+    if (
+      value &&
+      typeof value === "object"
+    ) {
       findVideoItems(value, results);
     }
   }
@@ -142,145 +278,358 @@ function findVideoItems(obj, results = []) {
 
 function getText(obj) {
   if (!obj) return "";
-  if (typeof obj.simpleText === "string") return cleanText(obj.simpleText);
-  if (Array.isArray(obj.runs)) return cleanText(obj.runs.map((r) => r.text || "").join(""));
+
+  if (
+    typeof obj.simpleText === "string"
+  ) {
+    return cleanText(obj.simpleText);
+  }
+
+  if (Array.isArray(obj.runs)) {
+    return cleanText(
+      obj.runs
+        .map((r) => r.text || "")
+        .join("")
+    );
+  }
+
   return "";
 }
 
-function getThumbnail(thumbnails = []) {
+function getThumbnail(
+  thumbnails = []
+) {
   if (!thumbnails.length) return "";
-  return thumbnails[thumbnails.length - 1]?.url || "";
+
+  return (
+    thumbnails[thumbnails.length - 1]
+      ?.url || ""
+  );
 }
 
-function estimatePublishedAtFromText(publishedText = "", baseDate = new Date(), index = 0) {
+function estimatePublishedAtFromText(
+  publishedText = "",
+  baseDate = new Date(),
+  index = 0
+) {
   const date = new Date(baseDate);
-  const match = String(publishedText || "").match(/(\d+(?:\.\d+)?)\s*(초|분|시간|일|주|개월|년)\s*전/);
+
+  const match = String(
+    publishedText || ""
+  ).match(
+    /(\d+(?:\.\d+)?)\s*(초|분|시간|일|주|개월|년)\s*전/
+  );
 
   if (match) {
     const amount = Number(match[1]);
+
     const unit = match[2];
 
-    if (unit === "초") date.setSeconds(date.getSeconds() - amount);
-    if (unit === "분") date.setMinutes(date.getMinutes() - amount);
-    if (unit === "시간") date.setHours(date.getHours() - amount);
-    if (unit === "일") date.setDate(date.getDate() - amount);
-    if (unit === "주") date.setDate(date.getDate() - amount * 7);
-    if (unit === "개월") date.setMonth(date.getMonth() - amount);
-    if (unit === "년") date.setFullYear(date.getFullYear() - amount);
+    if (unit === "초") {
+      date.setSeconds(
+        date.getSeconds() - amount
+      );
+    }
+
+    if (unit === "분") {
+      date.setMinutes(
+        date.getMinutes() - amount
+      );
+    }
+
+    if (unit === "시간") {
+      date.setHours(
+        date.getHours() - amount
+      );
+    }
+
+    if (unit === "일") {
+      date.setDate(
+        date.getDate() - amount
+      );
+    }
+
+    if (unit === "주") {
+      date.setDate(
+        date.getDate() - amount * 7
+      );
+    }
+
+    if (unit === "개월") {
+      date.setMonth(
+        date.getMonth() - amount
+      );
+    }
+
+    if (unit === "년") {
+      date.setFullYear(
+        date.getFullYear() - amount
+      );
+    }
   }
 
-  date.setSeconds(date.getSeconds() - index);
+  date.setSeconds(
+    date.getSeconds() - index
+  );
+
   return date.toISOString();
 }
 
-async function fetchKamriniPlaylist(playlist, playlistIndex) {
-  const url = `https://www.youtube.com/playlist?list=${playlist.id}`;
+async function fetchKamriniPlaylist(
+  playlist,
+  playlistIndex
+) {
+  const url =
+    `https://www.youtube.com/playlist?list=${playlist.id}`;
 
-  console.log(`📡 ${playlist.title} 수집중...`);
+  console.log(
+    `📡 ${playlist.title} 수집중...`
+  );
 
   const html = await fetchText(url);
-  const data = extractInitialData(html);
+
+  const data =
+    extractInitialData(html);
 
   if (!data) {
-    console.log(`❌ ${playlist.title}: ytInitialData 없음`);
+    console.log(
+      `❌ ${playlist.title}: ytInitialData 없음`
+    );
+
     return [];
   }
 
-  const rawItems = findVideoItems(data);
+  const rawItems =
+    findVideoItems(data);
+
   const seen = new Set();
+
   const baseDate = new Date();
 
   const items = rawItems
     .map((v, index) => {
       const videoId = v.videoId;
-      if (!videoId || seen.has(videoId)) return null;
+
+      if (
+        !videoId ||
+        seen.has(videoId)
+      ) {
+        return null;
+      }
 
       seen.add(videoId);
 
       const title = getText(v.title);
-      const publishedText = getText(v.videoInfo) || "";
-      const lengthText = getText(v.lengthText);
-      const thumbnail = getThumbnail(v.thumbnail?.thumbnails || []);
+
+      const publishedText =
+        getText(v.videoInfo) || "";
+
+      const lengthText =
+        getText(v.lengthText);
+
+      const thumbnail =
+        getThumbnail(
+          v.thumbnail?.thumbnails || []
+        );
+
+      const displayDate =
+        extractAgeText(
+          publishedText
+        );
 
       return {
-        source: "kamrini",
+        source: "youtube",
+
         sourceMethod: "playlist",
+
         name: "캄린이",
+
         type: "kamrini",
+
         channelTitle: "캄린이",
-        playlistYear: playlist.year,
-        playlistTitle: playlist.title,
+
+        playlistYear:
+          playlist.year,
+
+        playlistTitle:
+          playlist.title,
+
         videoId,
+
         title,
-        publishedAt: estimatePublishedAtFromText(
-          publishedText,
-          baseDate,
-          playlistIndex * 1000 + index
-        ),
-        updatedAt: new Date().toISOString(),
+
+        publishedAt:
+          estimatePublishedAtFromText(
+            publishedText,
+            baseDate,
+            playlistIndex * 1000 +
+              index
+          ),
+
+        updatedAt:
+          new Date().toISOString(),
+
         publishedText,
+
         lengthText,
-        url: `https://www.youtube.com/watch?v=${videoId}`,
-        link: `https://www.youtube.com/watch?v=${videoId}&list=${playlist.id}`,
-        embedUrl: `https://www.youtube.com/embed/${videoId}`,
-        thumbnail: thumbnail || `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+
+        displayDate,
+
+        displayMeta:
+          `캄린이 · ${displayDate}`,
+
+        url:
+          `https://www.youtube.com/watch?v=${videoId}`,
+
+        link:
+          `https://www.youtube.com/watch?v=${videoId}&list=${playlist.id}`,
+
+        embedUrl:
+          `https://www.youtube.com/embed/${videoId}`,
+
+        thumbnail:
+          thumbnail ||
+          `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
       };
     })
     .filter(Boolean);
 
-  console.log(`✅ ${playlist.title}: ${items.length}개`);
+  console.log(
+    `✅ ${playlist.title}: ${items.length}개`
+  );
+
   return items;
 }
 
+//////////////////////////////////////////////////////
+// MAIN
+//////////////////////////////////////////////////////
+
 async function main() {
-  const data = JSON.parse(fs.readFileSync(SOURCE_FILE, "utf8"));
+  const data = JSON.parse(
+    fs.readFileSync(
+      SOURCE_FILE,
+      "utf8"
+    )
+  );
 
   const allItems = [];
+
   const errors = [];
 
-  for (const source of data.sources || []) {
+  //////////////////////////////////////////////////////
+  // RSS
+  //////////////////////////////////////////////////////
+
+  for (const source of data.sources ||
+    []) {
     try {
-      const items = await fetchFeed(source);
+      const items =
+        await fetchFeed(source);
+
       allItems.push(...items);
-      console.log(`OK ${source.name} ${source.type}: ${items.length}개`);
+
+      console.log(
+        `OK ${source.name} ${source.type}: ${items.length}개`
+      );
     } catch (error) {
-      console.log(`FAIL ${source.name} ${source.type}: ${error.message}`);
-      errors.push({ source, message: error.message });
+      console.log(
+        `FAIL ${source.name} ${source.type}: ${error.message}`
+      );
+
+      errors.push({
+        source,
+        message: error.message,
+      });
     }
   }
 
-  for (let i = 0; i < (data.kamriniPlaylists || []).length; i++) {
-    const playlist = data.kamriniPlaylists[i];
+  //////////////////////////////////////////////////////
+  // 캄린이
+  //////////////////////////////////////////////////////
+
+  for (
+    let i = 0;
+    i <
+    (data.kamriniPlaylists ||
+      []).length;
+    i++
+  ) {
+    const playlist =
+      data.kamriniPlaylists[i];
 
     try {
-      const items = await fetchKamriniPlaylist(playlist, i);
+      const items =
+        await fetchKamriniPlaylist(
+          playlist,
+          i
+        );
+
       allItems.push(...items);
     } catch (error) {
-      console.log(`FAIL KAMRINI ${playlist.title}: ${error.message}`);
-      errors.push({ source: playlist, message: error.message });
+      console.log(
+        `FAIL KAMRINI ${playlist.title}: ${error.message}`
+      );
+
+      errors.push({
+        source: playlist,
+        message: error.message,
+      });
     }
   }
+
+  //////////////////////////////////////////////////////
+  // 중복 제거
+  //////////////////////////////////////////////////////
 
   const unique = new Map();
 
   for (const item of allItems) {
     if (!item.videoId) continue;
-    if (!unique.has(item.videoId)) unique.set(item.videoId, item);
+
+    if (!unique.has(item.videoId)) {
+      unique.set(
+        item.videoId,
+        item
+      );
+    }
   }
 
-  const items = [...unique.values()]
+  //////////////////////////////////////////////////////
+  // 정렬
+  //////////////////////////////////////////////////////
+
+  const items = [
+    ...unique.values(),
+  ]
     .sort((a, b) => {
-      return new Date(b.publishedAt || b.updatedAt) - new Date(a.publishedAt || a.updatedAt);
+      return (
+        new Date(
+          b.publishedAt ||
+            b.updatedAt
+        ) -
+        new Date(
+          a.publishedAt ||
+            a.updatedAt
+        )
+      );
     })
     .slice(0, MAX_ITEMS);
+
+  //////////////////////////////////////////////////////
+  // 저장
+  //////////////////////////////////////////////////////
 
   fs.writeFileSync(
     OUTPUT_FILE,
     JSON.stringify(
       {
         checkedAt: nowKST(),
+
         count: items.length,
+
         items,
+
         errors,
       },
       null,
@@ -289,10 +638,13 @@ async function main() {
     "utf8"
   );
 
-  console.log(`youtube.json 생성 완료: ${items.length}개`);
+  console.log(
+    `youtube.json 생성 완료: ${items.length}개`
+  );
 }
 
 main().catch((error) => {
   console.error(error);
+
   process.exit(1);
 });
