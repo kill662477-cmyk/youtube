@@ -15,5 +15,22 @@
       "type": "fan",
       "url": "https://www.youtube.com/channel/UCcEKr3U4RuuC97lVwajKs7A"
     }
+  ],
+  "kamriniPlaylists": [
+    {
+      "year": "2024",
+      "id": "PL-PBKf1_yEtvdd0e4JlcvT4DJjf3XiTPD",
+      "title": "츠캄 몬스타즈 2024년"
+    },
+    {
+      "year": "2025",
+      "id": "PL-PBKf1_yEttbfXpuUeOZAVhVxCVUBEai",
+      "title": "츠캄 몬스타즈 2025년"
+    },
+    {
+      "year": "2026",
+      "id": "PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
+      "title": "츠캄 몬스타즈 2026년"
+    }
   ]
 }
