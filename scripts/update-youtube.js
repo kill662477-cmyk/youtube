@@ -85,6 +85,20 @@ function channelIdFromUrl(url) {
   return direct ? direct[1] : "";
 }
 
+function playlistIdFromUrl(url = "") {
+  try {
+    const parsed = new URL(url);
+
+    return parsed.searchParams.get("list") || "";
+  } catch {
+    const match = String(url).match(
+      /[?&]list=([\w-]+)/i
+    );
+
+    return match ? match[1] : "";
+  }
+}
+
 async function resolveChannelId(url) {
   const direct = channelIdFromUrl(url);
 
@@ -375,15 +389,43 @@ function estimatePublishedAtFromText(
   return date.toISOString();
 }
 
-async function fetchKamriniPlaylist(
+async function fetchPlaylist(
   playlist,
-  playlistIndex
+  playlistIndex = 0,
+  sourceMeta = {}
 ) {
+  const playlistId =
+    playlist.id ||
+    playlist.playlistId ||
+    playlistIdFromUrl(playlist.url);
+
+  if (!playlistId) {
+    throw new Error(
+      `플레이리스트 ID를 찾지 못했습니다: ${playlist.url || playlist.title || "unknown"}`
+    );
+  }
+
+  const playlistTitle =
+    playlist.title ||
+    sourceMeta.playlistTitle ||
+    sourceMeta.name ||
+    playlistId;
+
+  const itemName =
+    sourceMeta.name || "캄린이";
+
+  const itemType =
+    sourceMeta.type || "kamrini";
+
+  const channelTitle =
+    sourceMeta.channelTitle ||
+    itemName;
+
   const url =
-    `https://www.youtube.com/playlist?list=${playlist.id}`;
+    `https://www.youtube.com/playlist?list=${playlistId}`;
 
   console.log(
-    `📡 ${playlist.title} 수집중...`
+    `📡 ${playlistTitle} 수집중...`
   );
 
   const html = await fetchText(url);
@@ -393,7 +435,7 @@ async function fetchKamriniPlaylist(
 
   if (!data) {
     console.log(
-      `❌ ${playlist.title}: ytInitialData 없음`
+      `❌ ${playlistTitle}: ytInitialData 없음`
     );
 
     return [];
@@ -442,17 +484,16 @@ async function fetchKamriniPlaylist(
 
         sourceMethod: "playlist",
 
-        name: "캄린이",
+        name: itemName,
 
-        type: "kamrini",
+        type: itemType,
 
-        channelTitle: "캄린이",
+        channelTitle,
 
         playlistYear:
-          playlist.year,
+          playlist.year || "",
 
-        playlistTitle:
-          playlist.title,
+        playlistTitle,
 
         videoId,
 
@@ -476,13 +517,13 @@ async function fetchKamriniPlaylist(
         displayDate,
 
         displayMeta:
-          `캄린이 · ${displayDate}`,
+          `${channelTitle} · ${displayDate}`,
 
         url:
           `https://www.youtube.com/watch?v=${videoId}`,
 
         link:
-          `https://www.youtube.com/watch?v=${videoId}&list=${playlist.id}`,
+          `https://www.youtube.com/watch?v=${videoId}&list=${playlistId}`,
 
         embedUrl:
           `https://www.youtube.com/embed/${videoId}`,
@@ -495,7 +536,7 @@ async function fetchKamriniPlaylist(
     .filter(Boolean);
 
   console.log(
-    `✅ ${playlist.title}: ${items.length}개`
+    `✅ ${playlistTitle}: ${items.length}개`
   );
 
   return items;
@@ -521,11 +562,33 @@ async function main() {
   // RSS
   //////////////////////////////////////////////////////
 
-  for (const source of data.sources ||
-    []) {
+  for (
+    let i = 0;
+    i < (data.sources || []).length;
+    i++
+  ) {
+    const source = data.sources[i];
+
     try {
-      const items =
-        await fetchFeed(source);
+      const playlistId =
+        source.playlistId ||
+        playlistIdFromUrl(source.url);
+
+      const items = playlistId
+        ? await fetchPlaylist(
+            {
+              ...source,
+              id: playlistId,
+              title: source.name,
+            },
+            i,
+            {
+              name: source.name,
+              type: source.type,
+              channelTitle: source.name,
+            }
+          )
+        : await fetchFeed(source);
 
       allItems.push(...items);
 
@@ -560,7 +623,7 @@ async function main() {
 
     try {
       const items =
-        await fetchKamriniPlaylist(
+        await fetchPlaylist(
           playlist,
           i
         );
