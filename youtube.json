@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-06-09 11:20:19",
+  "checkedAt": "2026-06-09 11:30:26",
   "count": 24,
   "items": [
     {
@@ -387,5 +387,14 @@
       "displayMeta": "캄몬팬튜브 Monstarz Fantube · 3개월 전"
     }
   ],
-  "errors": []
+  "errors": [
+    {
+      "source": {
+        "name": "츠캄몬스타즈 팬유튜브 3",
+        "type": "fan",
+        "url": "https://www.youtube.com/channel/UCcEKr3U4RuuC97lVwajKs7A"
+      },
+      "message": "404 Not Found"
+    }
+  ]
 }
