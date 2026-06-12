@@ -1,6 +1,6 @@
 {
-  "checkedAt": "2026-06-12 15:20:22",
-  "count": 15,
+  "checkedAt": "2026-06-12 15:30:28",
+  "count": 24,
   "items": [
     {
       "source": "youtube",
@@ -69,6 +69,70 @@
     {
       "source": "youtube",
       "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'My Time Is Now (주하랑 Theme)' 캄몬스타즈 MV",
+      "url": "https://www.youtube.com/watch?v=lFhkNyVihAE",
+      "videoId": "lFhkNyVihAE",
+      "thumbnail": "https://i.ytimg.com/vi/lFhkNyVihAE/hqdefault.jpg",
+      "publishedAt": "2026-05-21T10:34:55+00:00",
+      "updatedAt": "2026-05-27T03:15:55+00:00",
+      "displayDate": "3주 전",
+      "displayMeta": "KINKON · 3주 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] '그 계절에 우리가 있었어 (Golden Days)' 츠캄몬스타즈 뮤비 (MV)",
+      "url": "https://www.youtube.com/watch?v=6rUhIu7tlak",
+      "videoId": "6rUhIu7tlak",
+      "thumbnail": "https://i.ytimg.com/vi/6rUhIu7tlak/hqdefault.jpg",
+      "publishedAt": "2026-05-05T17:42:18+00:00",
+      "updatedAt": "2026-05-05T17:42:27+00:00",
+      "displayDate": "1개월 전",
+      "displayMeta": "KINKON · 1개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] '바로, 여기 (Right Here, Right Now)' 츠캄몬스타즈 응원 뮤비-로그(MV-log)",
+      "url": "https://www.youtube.com/watch?v=u5g4U5Ttb9U",
+      "videoId": "u5g4U5Ttb9U",
+      "thumbnail": "https://i.ytimg.com/vi/u5g4U5Ttb9U/hqdefault.jpg",
+      "publishedAt": "2026-05-02T15:39:17+00:00",
+      "updatedAt": "2026-05-20T22:23:50+00:00",
+      "displayDate": "1개월 전",
+      "displayMeta": "KINKON · 1개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'I'm Your Joy (임조이 Theme)' 츠캄몬스타즈 MV",
+      "url": "https://www.youtube.com/watch?v=qT49ON4D8H8",
+      "videoId": "qT49ON4D8H8",
+      "thumbnail": "https://i.ytimg.com/vi/qT49ON4D8H8/hqdefault.jpg",
+      "publishedAt": "2026-04-25T19:36:19+00:00",
+      "updatedAt": "2026-05-04T10:05:07+00:00",
+      "displayDate": "1개월 전",
+      "displayMeta": "KINKON · 1개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
       "name": "츠캄몬스타즈 팬유튜브 2",
       "type": "fan",
       "channelId": "UCScT2Alywz14zjs9vsyiEzg",
@@ -85,6 +149,22 @@
     {
       "source": "youtube",
       "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'Switch On You (치리 Theme)' 츠캄몬스타즈 MV",
+      "url": "https://www.youtube.com/watch?v=Lq3jpMJJOeQ",
+      "videoId": "Lq3jpMJJOeQ",
+      "thumbnail": "https://i.ytimg.com/vi/Lq3jpMJJOeQ/hqdefault.jpg",
+      "publishedAt": "2026-04-20T03:31:49+00:00",
+      "updatedAt": "2026-05-24T19:49:12+00:00",
+      "displayDate": "1개월 전",
+      "displayMeta": "KINKON · 1개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
       "name": "츠캄몬스타즈 팬유튜브 2",
       "type": "fan",
       "channelId": "UCScT2Alywz14zjs9vsyiEzg",
@@ -97,6 +177,38 @@
       "updatedAt": "2026-05-29T23:23:29+00:00",
       "displayDate": "1개월 전",
       "displayMeta": "캄몬팬튜브 Monstarz Fantube · 1개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'Peanut Time! (진땅콩 Theme)' 츠캄몬스타즈 MV",
+      "url": "https://www.youtube.com/watch?v=lLxEdr4E1EA",
+      "videoId": "lLxEdr4E1EA",
+      "thumbnail": "https://i.ytimg.com/vi/lLxEdr4E1EA/hqdefault.jpg",
+      "publishedAt": "2026-04-15T15:29:05+00:00",
+      "updatedAt": "2026-04-27T21:43:33+00:00",
+      "displayDate": "1개월 전",
+      "displayMeta": "KINKON · 1개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'Fresh Bloom (토마토 Theme)' 츠캄몬스타즈 MV",
+      "url": "https://www.youtube.com/watch?v=KerRIz6FUTI",
+      "videoId": "KerRIz6FUTI",
+      "thumbnail": "https://i.ytimg.com/vi/KerRIz6FUTI/hqdefault.jpg",
+      "publishedAt": "2026-04-09T21:14:57+00:00",
+      "updatedAt": "2026-05-23T00:31:26+00:00",
+      "displayDate": "2개월 전",
+      "displayMeta": "KINKON · 2개월 전"
     },
     {
       "source": "youtube",
@@ -165,6 +277,22 @@
     {
       "source": "youtube",
       "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'Black, New Clear' 흑카데미 응원 뮤비 (MV)",
+      "url": "https://www.youtube.com/watch?v=tkqvDrAFYAU",
+      "videoId": "tkqvDrAFYAU",
+      "thumbnail": "https://i.ytimg.com/vi/tkqvDrAFYAU/hqdefault.jpg",
+      "publishedAt": "2026-03-27T17:46:45+00:00",
+      "updatedAt": "2026-04-30T02:12:04+00:00",
+      "displayDate": "2개월 전",
+      "displayMeta": "KINKON · 2개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
       "name": "츠캄몬스타즈 팬유튜브 2",
       "type": "fan",
       "channelId": "UCScT2Alywz14zjs9vsyiEzg",
@@ -197,6 +325,22 @@
     {
       "source": "youtube",
       "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'Welcome To Our Show!' 츠캄몬스타즈 응원 뮤비 (MV)",
+      "url": "https://www.youtube.com/watch?v=Zr1mYvyDoLk",
+      "videoId": "Zr1mYvyDoLk",
+      "thumbnail": "https://i.ytimg.com/vi/Zr1mYvyDoLk/hqdefault.jpg",
+      "publishedAt": "2026-03-20T10:27:49+00:00",
+      "updatedAt": "2026-06-08T20:11:18+00:00",
+      "displayDate": "2개월 전",
+      "displayMeta": "KINKON · 2개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
       "name": "츠캄몬스타즈 팬유튜브 2",
       "type": "fan",
       "channelId": "UCScT2Alywz14zjs9vsyiEzg",
@@ -213,6 +357,22 @@
     {
       "source": "youtube",
       "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "북소리를 울려라 _ 2026 정선숲퍼컵 Opening Theme Song",
+      "url": "https://www.youtube.com/watch?v=sT5haypUZPY",
+      "videoId": "sT5haypUZPY",
+      "thumbnail": "https://i.ytimg.com/vi/sT5haypUZPY/hqdefault.jpg",
+      "publishedAt": "2026-02-16T16:53:54+00:00",
+      "updatedAt": "2026-04-29T21:44:55+00:00",
+      "displayDate": "3개월 전",
+      "displayMeta": "KINKON · 3개월 전"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
       "name": "츠캄몬스타즈 팬유튜브 2",
       "type": "fan",
       "channelId": "UCScT2Alywz14zjs9vsyiEzg",
@@ -225,32 +385,7 @@
       "updatedAt": "2026-06-09T20:56:46+00:00",
       "displayDate": "3개월 전",
       "displayMeta": "캄몬팬튜브 Monstarz Fantube · 3개월 전"
-    },
-    {
-      "source": "youtube",
-      "sourceMethod": "rss",
-      "name": "츠캄몬스타즈 팬유튜브 2",
-      "type": "fan",
-      "channelId": "UCScT2Alywz14zjs9vsyiEzg",
-      "channelTitle": "캄몬팬튜브 Monstarz Fantube",
-      "title": "츠캄의 마토",
-      "url": "https://www.youtube.com/watch?v=2YiodQRFnZo",
-      "videoId": "2YiodQRFnZo",
-      "thumbnail": "https://i.ytimg.com/vi/2YiodQRFnZo/hqdefault.jpg",
-      "publishedAt": "2026-02-09T17:20:51+00:00",
-      "updatedAt": "2026-05-10T15:29:14+00:00",
-      "displayDate": "4개월 전",
-      "displayMeta": "캄몬팬튜브 Monstarz Fantube · 4개월 전"
     }
   ],
-  "errors": [
-    {
-      "source": {
-        "name": "츠캄몬스타즈 팬유튜브 1",
-        "type": "fan",
-        "url": "https://www.youtube.com/channel/UCvdskwSUZ3kUNVAAK-va_JQ"
-      },
-      "message": "500 Internal Server Error"
-    }
-  ]
+  "errors": []
 }
