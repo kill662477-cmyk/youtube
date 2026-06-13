@@ -1,7 +1,23 @@
 {
-  "checkedAt": "2026-06-14 07:20:21",
+  "checkedAt": "2026-06-14 07:30:30",
   "count": 24,
   "items": [
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
+      "name": "츠캄몬스타즈 팬유튜브 1",
+      "type": "fan",
+      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
+      "channelTitle": "KINKON",
+      "title": "[SUB] 'New Tag' 캄몬스타즈 뮤비 (MV)",
+      "url": "https://www.youtube.com/watch?v=Zf5B9rcA7EQ",
+      "videoId": "Zf5B9rcA7EQ",
+      "thumbnail": "https://i.ytimg.com/vi/Zf5B9rcA7EQ/hqdefault.jpg",
+      "publishedAt": "2026-06-13T22:19:25+00:00",
+      "updatedAt": "2026-06-13T22:19:36+00:00",
+      "displayDate": "11분 전",
+      "displayMeta": "KINKON · 11분 전"
+    },
     {
       "source": "youtube",
       "sourceMethod": "playlist-rss",
@@ -384,22 +400,6 @@
       "updatedAt": "2026-05-28T22:05:25+00:00",
       "displayDate": "2개월 전",
       "displayMeta": "캄몬팬튜브 Monstarz Fantube · 2개월 전"
-    },
-    {
-      "source": "youtube",
-      "sourceMethod": "rss",
-      "name": "츠캄몬스타즈 팬유튜브 1",
-      "type": "fan",
-      "channelId": "UCvdskwSUZ3kUNVAAK-va_JQ",
-      "channelTitle": "KINKON",
-      "title": "[SUB] 'Welcome To Our Show!' 츠캄몬스타즈 응원 뮤비 (MV)",
-      "url": "https://www.youtube.com/watch?v=Zr1mYvyDoLk",
-      "videoId": "Zr1mYvyDoLk",
-      "thumbnail": "https://i.ytimg.com/vi/Zr1mYvyDoLk/hqdefault.jpg",
-      "publishedAt": "2026-03-20T10:27:49+00:00",
-      "updatedAt": "2026-06-08T20:11:18+00:00",
-      "displayDate": "2개월 전",
-      "displayMeta": "KINKON · 2개월 전"
     }
   ],
   "errors": []
