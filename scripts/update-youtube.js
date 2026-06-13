@@ -252,18 +252,73 @@ async function fetchFeed(source) {
 // 캄린이
 //////////////////////////////////////////////////////
 
-function extractInitialData(html) {
-  const match = html.match(
-    /var ytInitialData = (\{[\s\S]*?\});<\/script>/
-  );
+function parseBalancedJsonFrom(html, startIndex) {
+  const openIndex = html.indexOf("{", startIndex);
 
-  if (!match) return null;
+  if (openIndex < 0) return null;
 
-  try {
-    return JSON.parse(match[1]);
-  } catch {
-    return null;
+  let depth = 0;
+  let inString = false;
+  let escape = false;
+
+  for (let i = openIndex; i < html.length; i++) {
+    const ch = html[i];
+
+    if (inString) {
+      if (escape) {
+        escape = false;
+      } else if (ch === "\\") {
+        escape = true;
+      } else if (ch === '"') {
+        inString = false;
+      }
+      continue;
+    }
+
+    if (ch === '"') {
+      inString = true;
+      continue;
+    }
+
+    if (ch === "{") depth++;
+
+    if (ch === "}") {
+      depth--;
+
+      if (depth === 0) {
+        return html.slice(openIndex, i + 1);
+      }
+    }
   }
+
+  return null;
+}
+
+function extractInitialData(html) {
+  const markers = [
+    "var ytInitialData =",
+    "window[\"ytInitialData\"] =",
+    "window['ytInitialData'] =",
+    "ytInitialData =",
+  ];
+
+  for (const marker of markers) {
+    const index = html.indexOf(marker);
+
+    if (index < 0) continue;
+
+    const jsonText = parseBalancedJsonFrom(html, index + marker.length);
+
+    if (!jsonText) continue;
+
+    try {
+      return JSON.parse(jsonText);
+    } catch {
+      // 다음 패턴 계속 시도
+    }
+  }
+
+  return null;
 }
 
 function findVideoItems(
@@ -319,6 +374,87 @@ function getThumbnail(
     thumbnails[thumbnails.length - 1]
       ?.url || ""
   );
+}
+
+function itemFromFeedEntry(entry, playlist, playlistId, sourceMeta = {}) {
+  const videoId = extractVideoId(entry);
+
+  if (!videoId) return null;
+
+  const channelTitle =
+    extractTag(entry, "name") ||
+    sourceMeta.channelTitle ||
+    sourceMeta.name ||
+    "캄린이";
+
+  const itemName =
+    sourceMeta.name ||
+    playlist.name ||
+    "캄린이";
+
+  const itemType =
+    sourceMeta.type ||
+    playlist.type ||
+    "kamrini";
+
+  const playlistTitle =
+    playlist.title ||
+    sourceMeta.playlistTitle ||
+    sourceMeta.name ||
+    playlistId;
+
+  const publishedAt = extractTag(entry, "published");
+  const displayDate = timeAgo(publishedAt);
+
+  return {
+    source: "youtube",
+    sourceMethod: "playlist-rss",
+
+    name: itemName,
+    type: itemType,
+
+    channelTitle,
+    playlistYear: playlist.year || "",
+    playlistTitle,
+
+    videoId,
+    title: extractTag(entry, "title"),
+
+    publishedAt,
+    updatedAt: extractTag(entry, "updated"),
+
+    publishedText: displayDate,
+    lengthText: "",
+    displayDate,
+    displayMeta: `${channelTitle} · ${displayDate}`,
+
+    url: `https://www.youtube.com/watch?v=${videoId}`,
+    link: `https://www.youtube.com/watch?v=${videoId}&list=${playlistId}`,
+    embedUrl: `https://www.youtube.com/embed/${videoId}`,
+    thumbnail: `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+  };
+}
+
+async function fetchPlaylistFeed(playlist, playlistId, sourceMeta = {}) {
+  const feedUrl =
+    `https://www.youtube.com/feeds/videos.xml?playlist_id=${playlistId}`;
+
+  const xml = await fetchText(feedUrl);
+
+  const entries = [
+    ...xml.matchAll(/<entry[\s\S]*?<\/entry>/g),
+  ].map((m) => m[0]);
+
+  const seen = new Set();
+
+  return entries
+    .map((entry) => itemFromFeedEntry(entry, playlist, playlistId, sourceMeta))
+    .filter(Boolean)
+    .filter((item) => {
+      if (seen.has(item.videoId)) return false;
+      seen.add(item.videoId);
+      return true;
+    });
 }
 
 function estimatePublishedAtFromText(
@@ -421,12 +557,36 @@ async function fetchPlaylist(
     sourceMeta.channelTitle ||
     itemName;
 
-  const url =
-    `https://www.youtube.com/playlist?list=${playlistId}`;
-
   console.log(
     `📡 ${playlistTitle} 수집중...`
   );
+
+  try {
+    const feedItems = await fetchPlaylistFeed(
+      playlist,
+      playlistId,
+      sourceMeta
+    );
+
+    if (feedItems.length) {
+      console.log(
+        `✅ ${playlistTitle}: RSS ${feedItems.length}개`
+      );
+
+      return feedItems;
+    }
+
+    console.log(
+      `⚠️ ${playlistTitle}: RSS 0개, HTML fallback 시도`
+    );
+  } catch (error) {
+    console.log(
+      `⚠️ ${playlistTitle}: RSS 실패(${error.message}), HTML fallback 시도`
+    );
+  }
+
+  const url =
+    `https://www.youtube.com/playlist?list=${playlistId}`;
 
   const html = await fetchText(url);
 
