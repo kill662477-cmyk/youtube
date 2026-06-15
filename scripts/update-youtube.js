@@ -3,6 +3,16 @@ const fs = require("fs");
 const SOURCE_FILE = "data/youtube-sources.json";
 const OUTPUT_FILE = "youtube.json";
 const MAX_ITEMS = 24;
+const FETCH_RETRIES = 3;
+const RETRY_DELAY_MS = 1000;
+const RETRYABLE_STATUS = new Set([
+  408,
+  429,
+  500,
+  502,
+  503,
+  504,
+]);
 
 function nowKST() {
   return new Intl.DateTimeFormat("sv-SE", {
@@ -57,24 +67,72 @@ function extractVideoId(entryXml) {
   return id.replace("yt:video:", "");
 }
 
-async function fetchText(url) {
-  const response = await fetch(url, {
-    headers: {
-      "user-agent": "Mozilla/5.0 YouTube feed updater",
-      "accept":
-        "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
-      "accept-language":
-        "ko-KR,ko;q=0.9,en-US;q=0.8",
-    },
+function sleep(ms) {
+  return new Promise((resolve) => {
+    setTimeout(resolve, ms);
   });
+}
 
-  if (!response.ok) {
-    throw new Error(
-      `${response.status} ${response.statusText}`
+async function fetchText(url, options = {}) {
+  const retries =
+    options.retries ?? FETCH_RETRIES;
+
+  let lastError = null;
+
+  for (
+    let attempt = 0;
+    attempt <= retries;
+    attempt++
+  ) {
+    try {
+      const response = await fetch(url, {
+        headers: {
+          "user-agent": "Mozilla/5.0 YouTube feed updater",
+          "accept":
+            "text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8",
+          "accept-language":
+            "ko-KR,ko;q=0.9,en-US;q=0.8",
+        },
+      });
+
+      if (response.ok) {
+        return await response.text();
+      }
+
+      lastError = new Error(
+        `${response.status} ${response.statusText}`
+      );
+
+      if (
+        !RETRYABLE_STATUS.has(
+          response.status
+        ) ||
+        attempt === retries
+      ) {
+        lastError.retryable = false;
+        throw lastError;
+      }
+    } catch (error) {
+      lastError = error;
+
+      if (
+        error.retryable === false ||
+        attempt === retries
+      ) {
+        throw lastError;
+      }
+    }
+
+    console.log(
+      `WARN fetch retry ${attempt + 1}/${retries}: ${url} (${lastError.message})`
+    );
+
+    await sleep(
+      RETRY_DELAY_MS * (attempt + 1)
     );
   }
 
-  return await response.text();
+  throw lastError;
 }
 
 function channelIdFromUrl(url) {
@@ -184,6 +242,84 @@ function extractAgeText(publishedText = "") {
 // RSS
 //////////////////////////////////////////////////////
 
+function channelVideosUrl(sourceUrl, channelId) {
+  try {
+    const parsed = new URL(sourceUrl);
+
+    if (
+      /\/(?:videos|shorts|streams)\/?$/i.test(
+        parsed.pathname
+      )
+    ) {
+      return sourceUrl;
+    }
+
+    parsed.pathname =
+      parsed.pathname.replace(/\/+$/, "") +
+      "/videos";
+
+    return parsed.toString();
+  } catch {
+    return channelId
+      ? `https://www.youtube.com/channel/${channelId}/videos`
+      : sourceUrl;
+  }
+}
+
+async function fetchChannelPage(
+  source,
+  channelId
+) {
+  const pageUrl = channelVideosUrl(
+    source.url,
+    channelId
+  );
+
+  const html = await fetchText(pageUrl);
+
+  const data = extractInitialData(html);
+
+  if (!data) {
+    console.log(
+      `❌ ${source.name}: ytInitialData 없음`
+    );
+
+    return [];
+  }
+
+  const seen = new Set();
+
+  const baseDate = new Date();
+
+  const items = findVideoItems(data)
+    .map((renderer, index) => {
+      return itemFromPageRenderer(
+        renderer,
+        {
+          sourceMethod: "channel-page",
+          name: source.name,
+          type: source.type,
+          channelId,
+          channelTitle: source.name,
+          baseDate,
+        },
+        index
+      );
+    })
+    .filter(Boolean)
+    .filter((item) => {
+      if (seen.has(item.videoId)) return false;
+      seen.add(item.videoId);
+      return true;
+    });
+
+  console.log(
+    `✅ ${source.name}: 채널 페이지 ${items.length}개`
+  );
+
+  return items;
+}
+
 async function fetchFeed(source) {
   const channelId = await resolveChannelId(
     source.url
@@ -192,60 +328,82 @@ async function fetchFeed(source) {
   const feedUrl =
     `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`;
 
-  const xml = await fetchText(feedUrl);
+  try {
+    const xml = await fetchText(feedUrl);
 
-  const entries = [
-    ...xml.matchAll(/<entry[\s\S]*?<\/entry>/g),
-  ].map((m) => m[0]);
+    const entries = [
+      ...xml.matchAll(/<entry[\s\S]*?<\/entry>/g),
+    ].map((m) => m[0]);
 
-  return entries.map((entry) => {
-    const videoId = extractVideoId(entry);
+    if (!entries.length) {
+      console.log(
+        `⚠️ ${source.name}: RSS 0개, 채널 페이지 fallback 시도`
+      );
 
-    const channelTitle =
-      extractTag(entry, "name") ||
-      source.name;
+      return await fetchChannelPage(
+        source,
+        channelId
+      );
+    }
 
-    const publishedAt =
-      extractTag(entry, "published");
+    return entries.map((entry) => {
+      const videoId = extractVideoId(entry);
 
-    const displayDate =
-      timeAgo(publishedAt);
+      const channelTitle =
+        extractTag(entry, "name") ||
+        source.name;
 
-    return {
-      source: "youtube",
-      sourceMethod: "rss",
+      const publishedAt =
+        extractTag(entry, "published");
 
-      name: source.name,
-      type: source.type,
+      const displayDate =
+        timeAgo(publishedAt);
 
-      channelId,
-      channelTitle,
+      return {
+        source: "youtube",
+        sourceMethod: "rss",
 
-      title: extractTag(entry, "title"),
+        name: source.name,
+        type: source.type,
 
-      url: videoId
-        ? `https://www.youtube.com/watch?v=${videoId}`
-        : extractTag(entry, "link"),
+        channelId,
+        channelTitle,
 
-      videoId,
+        title: extractTag(entry, "title"),
 
-      thumbnail: videoId
-        ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
-        : "",
+        url: videoId
+          ? `https://www.youtube.com/watch?v=${videoId}`
+          : extractTag(entry, "link"),
 
-      publishedAt,
+        videoId,
 
-      updatedAt: extractTag(
-        entry,
-        "updated"
-      ),
+        thumbnail: videoId
+          ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+          : "",
 
-      displayDate,
+        publishedAt,
 
-      displayMeta:
-        `${channelTitle} · ${displayDate}`,
-    };
-  });
+        updatedAt: extractTag(
+          entry,
+          "updated"
+        ),
+
+        displayDate,
+
+        displayMeta:
+          `${channelTitle} · ${displayDate}`,
+      };
+    });
+  } catch (error) {
+    console.log(
+      `⚠️ ${source.name}: RSS 실패(${error.message}), 채널 페이지 fallback 시도`
+    );
+
+    return await fetchChannelPage(
+      source,
+      channelId
+    );
+  }
 }
 
 //////////////////////////////////////////////////////
@@ -329,8 +487,28 @@ function findVideoItems(
     return results;
   }
 
+  if (obj.videoRenderer) {
+    results.push(obj.videoRenderer);
+  }
+
+  if (obj.gridVideoRenderer) {
+    results.push(obj.gridVideoRenderer);
+  }
+
   if (obj.playlistVideoRenderer) {
     results.push(obj.playlistVideoRenderer);
+  }
+
+  if (obj.reelItemRenderer) {
+    results.push(obj.reelItemRenderer);
+  }
+
+  if (
+    obj.lockupViewModel &&
+    obj.lockupViewModel.contentType ===
+      "LOCKUP_CONTENT_TYPE_VIDEO"
+  ) {
+    results.push(obj.lockupViewModel);
   }
 
   for (const value of Object.values(obj)) {
@@ -374,6 +552,227 @@ function getThumbnail(
     thumbnails[thumbnails.length - 1]
       ?.url || ""
   );
+}
+
+function getContentText(obj) {
+  if (!obj) return "";
+
+  if (typeof obj === "string") {
+    return cleanText(obj);
+  }
+
+  if (typeof obj.content === "string") {
+    return cleanText(obj.content);
+  }
+
+  return getText(obj);
+}
+
+function getVideoId(renderer) {
+  return (
+    renderer.videoId ||
+    renderer.contentId ||
+    renderer.navigationEndpoint
+      ?.watchEndpoint?.videoId ||
+    renderer.rendererContext
+      ?.commandContext?.onTap
+      ?.innertubeCommand?.watchEndpoint
+      ?.videoId ||
+    ""
+  );
+}
+
+function getRendererTitle(renderer) {
+  return (
+    getText(renderer.title) ||
+    getContentText(renderer.title) ||
+    getContentText(
+      renderer.metadata
+        ?.lockupMetadataViewModel?.title
+    ) ||
+    getText(renderer.headline) ||
+    ""
+  );
+}
+
+function getLockupMetadataParts(renderer) {
+  const rows =
+    renderer.metadata
+      ?.lockupMetadataViewModel
+      ?.metadata
+      ?.contentMetadataViewModel
+      ?.metadataRows || [];
+
+  return rows
+    .flatMap((row) => {
+      return row.metadataParts || [];
+    })
+    .map((part) => {
+      return (
+        getContentText(part.text) ||
+        cleanText(part.accessibilityLabel)
+      );
+    })
+    .filter(Boolean);
+}
+
+function getPublishedText(renderer) {
+  const direct =
+    getText(renderer.publishedTimeText) ||
+    getText(renderer.videoInfo);
+
+  if (direct) return extractAgeText(direct);
+
+  const metadataParts =
+    getLockupMetadataParts(renderer);
+
+  return (
+    metadataParts.find((part) => {
+      return /(?:방금|초|분|시간|일|주|개월|년)\s*전/.test(
+        part
+      );
+    }) ||
+    metadataParts[metadataParts.length - 1] ||
+    ""
+  );
+}
+
+function getRendererLengthText(renderer) {
+  const direct =
+    getText(renderer.lengthText) ||
+    getContentText(renderer.lengthText);
+
+  if (direct) return direct;
+
+  const badges =
+    renderer.contentImage
+      ?.thumbnailViewModel?.overlays ||
+    [];
+
+  for (const overlay of badges) {
+    const badge =
+      overlay.thumbnailBottomOverlayViewModel
+        ?.badges?.[0]
+        ?.thumbnailBadgeViewModel;
+
+    if (badge?.text) {
+      return cleanText(badge.text);
+    }
+  }
+
+  return "";
+}
+
+function getRendererThumbnail(
+  renderer,
+  videoId
+) {
+  const thumbnail =
+    getThumbnail(
+      renderer.thumbnail?.thumbnails ||
+        renderer.contentImage
+          ?.thumbnailViewModel?.image
+          ?.sources ||
+        []
+    );
+
+  if (thumbnail) return thumbnail;
+
+  return videoId
+    ? `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`
+    : "";
+}
+
+function itemFromPageRenderer(
+  renderer,
+  context = {},
+  index = 0
+) {
+  const videoId = getVideoId(renderer);
+
+  if (!videoId) return null;
+
+  const itemName =
+    context.name || "캄린이";
+
+  const itemType =
+    context.type || "kamrini";
+
+  const channelTitle =
+    context.channelTitle || itemName;
+
+  const publishedText =
+    getPublishedText(renderer);
+
+  const displayDate =
+    extractAgeText(publishedText);
+
+  const publishedAt =
+    estimatePublishedAtFromText(
+      publishedText,
+      context.baseDate || new Date(),
+      (context.itemIndexBase || 0) + index
+    );
+
+  const playlistId =
+    context.playlistId || "";
+
+  return {
+    source: "youtube",
+
+    sourceMethod:
+      context.sourceMethod || "page",
+
+    name: itemName,
+
+    type: itemType,
+
+    channelId: context.channelId || "",
+
+    channelTitle,
+
+    playlistYear:
+      context.playlistYear || "",
+
+    playlistTitle:
+      context.playlistTitle || "",
+
+    videoId,
+
+    title: getRendererTitle(renderer),
+
+    publishedAt,
+
+    updatedAt:
+      new Date().toISOString(),
+
+    publishedText,
+
+    lengthText:
+      getRendererLengthText(renderer),
+
+    displayDate,
+
+    displayMeta: displayDate
+      ? `${channelTitle} · ${displayDate}`
+      : channelTitle,
+
+    url:
+      `https://www.youtube.com/watch?v=${videoId}`,
+
+    link: playlistId
+      ? `https://www.youtube.com/watch?v=${videoId}&list=${playlistId}`
+      : `https://www.youtube.com/watch?v=${videoId}`,
+
+    embedUrl:
+      `https://www.youtube.com/embed/${videoId}`,
+
+    thumbnail:
+      getRendererThumbnail(
+        renderer,
+        videoId
+      ),
+  };
 }
 
 function itemFromFeedEntry(entry, playlist, playlistId, sourceMeta = {}) {
@@ -610,88 +1009,35 @@ async function fetchPlaylist(
 
   const items = rawItems
     .map((v, index) => {
-      const videoId = v.videoId;
+      const item = itemFromPageRenderer(
+        v,
+        {
+          sourceMethod: "playlist",
+          name: itemName,
+          type: itemType,
+          channelTitle,
+          playlistYear:
+            playlist.year || "",
+          playlistTitle,
+          playlistId,
+          baseDate,
+          itemIndexBase:
+            playlistIndex * 1000,
+        },
+        index
+      );
 
-      if (
-        !videoId ||
-        seen.has(videoId)
-      ) {
+      if (!item) {
         return null;
       }
 
-      seen.add(videoId);
+      if (seen.has(item.videoId)) {
+        return null;
+      }
 
-      const title = getText(v.title);
+      seen.add(item.videoId);
 
-      const publishedText =
-        getText(v.videoInfo) || "";
-
-      const lengthText =
-        getText(v.lengthText);
-
-      const thumbnail =
-        getThumbnail(
-          v.thumbnail?.thumbnails || []
-        );
-
-      const displayDate =
-        extractAgeText(
-          publishedText
-        );
-
-      return {
-        source: "youtube",
-
-        sourceMethod: "playlist",
-
-        name: itemName,
-
-        type: itemType,
-
-        channelTitle,
-
-        playlistYear:
-          playlist.year || "",
-
-        playlistTitle,
-
-        videoId,
-
-        title,
-
-        publishedAt:
-          estimatePublishedAtFromText(
-            publishedText,
-            baseDate,
-            playlistIndex * 1000 +
-              index
-          ),
-
-        updatedAt:
-          new Date().toISOString(),
-
-        publishedText,
-
-        lengthText,
-
-        displayDate,
-
-        displayMeta:
-          `${channelTitle} · ${displayDate}`,
-
-        url:
-          `https://www.youtube.com/watch?v=${videoId}`,
-
-        link:
-          `https://www.youtube.com/watch?v=${videoId}&list=${playlistId}`,
-
-        embedUrl:
-          `https://www.youtube.com/embed/${videoId}`,
-
-        thumbnail:
-          thumbnail ||
-          `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
-      };
+      return item;
     })
     .filter(Boolean);
 
