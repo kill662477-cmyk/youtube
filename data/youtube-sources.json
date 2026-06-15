@@ -37,5 +37,27 @@
       "id": "PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "title": "츠캄 몬스타즈 2026년"
     }
+  ],
+  "manualVideos": [
+    {
+      "name": "캄린이",
+      "type": "kamrini",
+      "channelTitle": "캄린이",
+      "channelId": "UCcEKr3U4RuuC97lVwajKs7A",
+      "sourceTitle": "츠캄 장난감",
+      "title": "캄몬 OFFICIAL 변현제",
+      "videoId": "q6DOTf5Mzwg",
+      "publishedAt": "2026-06-13T11:10:04-07:00"
+    },
+    {
+      "name": "캄린이",
+      "type": "kamrini",
+      "channelTitle": "캄린이",
+      "channelId": "UCcEKr3U4RuuC97lVwajKs7A",
+      "sourceTitle": "츠캄 장난감",
+      "title": "캄몬 김윤환 생일 축하",
+      "videoId": "bj2I_q46nH8",
+      "publishedAt": "2026-06-12T07:18:15-07:00"
+    }
   ]
 }

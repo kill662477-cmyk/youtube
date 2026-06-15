@@ -157,6 +157,30 @@ function playlistIdFromUrl(url = "") {
   }
 }
 
+function getYoutubeVideoId(url = "") {
+  const text = String(url || "");
+  const patterns = [
+    /youtube\.com\/watch\?v=([^&#?/]+)/i,
+    /youtu\.be\/([^&#?/]+)/i,
+    /youtube\.com\/shorts\/([^&#?/]+)/i,
+    /youtube\.com\/embed\/([^&#?/]+)/i,
+  ];
+
+  for (const pattern of patterns) {
+    const match = text.match(pattern);
+
+    if (match) return match[1];
+  }
+
+  try {
+    const parsed = new URL(text);
+
+    return parsed.searchParams.get("v") || "";
+  } catch {
+    return "";
+  }
+}
+
 async function resolveChannelId(url) {
   const direct = channelIdFromUrl(url);
 
@@ -1048,6 +1072,84 @@ async function fetchPlaylist(
   return items;
 }
 
+function itemFromManualVideo(
+  video,
+  index = 0
+) {
+  const videoId =
+    video.videoId ||
+    getYoutubeVideoId(
+      video.url ||
+        video.link ||
+        video.embedUrl ||
+        ""
+    );
+
+  if (!videoId) return null;
+
+  const url =
+    video.url ||
+    video.link ||
+    `https://www.youtube.com/watch?v=${videoId}`;
+
+  const publishedAt =
+    video.publishedAt ||
+    video.published ||
+    video.updatedAt ||
+    new Date(
+      Date.now() - index * 1000
+    ).toISOString();
+
+  const displayDate =
+    video.displayDate ||
+    video.publishedText ||
+    timeAgo(publishedAt);
+
+  const channelTitle =
+    video.channelTitle ||
+    video.name ||
+    "캄린이";
+
+  return {
+    source: "youtube",
+    sourceMethod: "manual",
+
+    name: video.name || channelTitle,
+    type: video.type || "kamrini",
+
+    channelId: video.channelId || "",
+    channelTitle,
+    sourceTitle: video.sourceTitle || "",
+
+    playlistYear: video.year || "",
+    playlistTitle:
+      video.playlistTitle || "",
+
+    videoId,
+    title: video.title || "",
+
+    publishedAt,
+    updatedAt:
+      video.updatedAt ||
+      new Date().toISOString(),
+
+    publishedText: displayDate,
+    lengthText: video.lengthText || "",
+    displayDate,
+    displayMeta:
+      `${channelTitle} · ${displayDate}`,
+
+    url,
+    link: video.link || url,
+    embedUrl:
+      video.embedUrl ||
+      `https://www.youtube.com/embed/${videoId}`,
+    thumbnail:
+      video.thumbnail ||
+      `https://i.ytimg.com/vi/${videoId}/hqdefault.jpg`,
+  };
+}
+
 //////////////////////////////////////////////////////
 // MAIN
 //////////////////////////////////////////////////////
@@ -1145,6 +1247,28 @@ async function main() {
         message: error.message,
       });
     }
+  }
+
+  //////////////////////////////////////////////////////
+  // 수동 등록 영상
+  //////////////////////////////////////////////////////
+
+  const manualItems =
+    (data.manualVideos || [])
+      .map((video, index) => {
+        return itemFromManualVideo(
+          video,
+          index
+        );
+      })
+      .filter(Boolean);
+
+  if (manualItems.length) {
+    allItems.push(...manualItems);
+
+    console.log(
+      `OK manual videos: ${manualItems.length}개`
+    );
   }
 
   //////////////////////////////////////////////////////
