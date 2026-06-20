@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const SOURCE_FILE = "data/youtube-sources.json";
 const OUTPUT_FILE = "youtube.json";
-const MAX_ITEMS = 24;
+const MAX_ITEMS = 30;
 const FETCH_RETRIES = 3;
 const RETRY_DELAY_MS = 1000;
 const RETRYABLE_STATUS = new Set([
