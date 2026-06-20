@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const SOURCE_FILE = "data/youtube-sources.json";
 const OUTPUT_FILE = "youtube.json";
-const MAX_ITEMS = 30;
+const MAX_ITEMS = 60;
 const FETCH_RETRIES = 3;
 const RETRY_DELAY_MS = 1000;
 const RETRYABLE_STATUS = new Set([
@@ -344,6 +344,49 @@ async function fetchChannelPage(
   return items;
 }
 
+function mergeVideoItems(...groups) {
+  const merged = [];
+  const seen = new Set();
+
+  groups.flat().forEach((item) => {
+    if (!item || !item.videoId || seen.has(item.videoId)) return;
+
+    seen.add(item.videoId);
+    merged.push(item);
+  });
+
+  return merged;
+}
+
+function uploadsPlaylistIdFromChannelId(channelId = "") {
+  return /^UC[\w-]+$/i.test(channelId)
+    ? `UU${channelId.slice(2)}`
+    : "";
+}
+
+async function fetchUploadsPlaylistPage(source, channelId) {
+  const playlistId = uploadsPlaylistIdFromChannelId(channelId);
+
+  if (!playlistId) return [];
+
+  return await fetchPlaylist(
+    {
+      id: playlistId,
+      title: `${source.name} 업로드`,
+      method: "page",
+    },
+    0,
+    {
+      name: source.name,
+      type: source.type,
+      channelId,
+      channelTitle: source.name,
+      playlistTitle: `${source.name} 업로드`,
+      method: "page",
+    }
+  );
+}
+
 async function fetchFeed(source) {
   const channelId = await resolveChannelId(
     source.url
@@ -361,16 +404,33 @@ async function fetchFeed(source) {
 
     if (!entries.length) {
       console.log(
-        `⚠️ ${source.name}: RSS 0개, 채널 페이지 fallback 시도`
+        `⚠️ ${source.name}: RSS 0개, 페이지 fallback 시도`
       );
 
-      return await fetchChannelPage(
+      const pageItems = await fetchChannelPage(
         source,
         channelId
+      ).catch(() => []);
+
+      if (source.method !== "page") return pageItems;
+
+      const uploadItems = await fetchUploadsPlaylistPage(
+        source,
+        channelId
+      ).catch((error) => {
+        console.log(
+          `⚠️ ${source.name}: 업로드 플레이리스트 실패(${error.message})`
+        );
+        return [];
+      });
+
+      return mergeVideoItems(
+        pageItems,
+        uploadItems
       );
     }
 
-    return entries.map((entry) => {
+    const rssItems = entries.map((entry) => {
       const videoId = extractVideoId(entry);
 
       const channelTitle =
@@ -417,19 +477,71 @@ async function fetchFeed(source) {
         displayMeta:
           `${channelTitle} · ${displayDate}`,
       };
-    });
-  } catch (error) {
-    console.log(
-      `⚠️ ${source.name}: RSS 실패(${error.message}), 채널 페이지 fallback 시도`
-    );
+    }).filter((item) => item.videoId);
 
-    return await fetchChannelPage(
+    // 일반 채널 RSS는 최신 15개만 내려준다.
+    // method:"page" 소스는 RSS에서 끝내지 않고 채널 탭 + 업로드 플레이리스트(UU...)까지 병합한다.
+    if (source.method !== "page") return rssItems;
+
+    const pageItems = await fetchChannelPage(
       source,
       channelId
+    ).catch((error) => {
+      console.log(
+        `⚠️ ${source.name}: 채널 페이지 실패(${error.message})`
+      );
+      return [];
+    });
+
+    const uploadItems = await fetchUploadsPlaylistPage(
+      source,
+      channelId
+    ).catch((error) => {
+      console.log(
+        `⚠️ ${source.name}: 업로드 플레이리스트 실패(${error.message})`
+      );
+      return [];
+    });
+
+    const merged = mergeVideoItems(
+      rssItems,
+      pageItems,
+      uploadItems
+    );
+
+    console.log(
+      `✅ ${source.name}: RSS ${rssItems.length} + 페이지 ${pageItems.length} + 업로드 ${uploadItems.length} → ${merged.length}개`
+    );
+
+    return merged.length ? merged : rssItems;
+  } catch (error) {
+    console.log(
+      `⚠️ ${source.name}: RSS 실패(${error.message}), 페이지 fallback 시도`
+    );
+
+    const pageItems = await fetchChannelPage(
+      source,
+      channelId
+    ).catch(() => []);
+
+    if (source.method !== "page") return pageItems;
+
+    const uploadItems = await fetchUploadsPlaylistPage(
+      source,
+      channelId
+    ).catch((uploadError) => {
+      console.log(
+        `⚠️ ${source.name}: 업로드 플레이리스트 실패(${uploadError.message})`
+      );
+      return [];
+    });
+
+    return mergeVideoItems(
+      pageItems,
+      uploadItems
     );
   }
 }
-
 //////////////////////////////////////////////////////
 // 캄린이
 //////////////////////////////////////////////////////
@@ -836,6 +948,8 @@ function itemFromFeedEntry(entry, playlist, playlistId, sourceMeta = {}) {
     name: itemName,
     type: itemType,
 
+    channelId:
+      sourceMeta.channelId || "",
     channelTitle,
     playlistYear: playlist.year || "",
     playlistTitle,
@@ -980,12 +1094,18 @@ async function fetchPlaylist(
     sourceMeta.channelTitle ||
     itemName;
 
+  const forcePage =
+    playlist.method === "page" ||
+    sourceMeta.method === "page";
+
   console.log(
     `📡 ${playlistTitle} 수집중...`
   );
 
+  let feedItems = [];
+
   try {
-    const feedItems = await fetchPlaylistFeed(
+    feedItems = await fetchPlaylistFeed(
       playlist,
       playlistId,
       sourceMeta
@@ -996,12 +1116,18 @@ async function fetchPlaylist(
         `✅ ${playlistTitle}: RSS ${feedItems.length}개`
       );
 
-      return feedItems;
-    }
+      if (!forcePage) {
+        return feedItems;
+      }
 
-    console.log(
-      `⚠️ ${playlistTitle}: RSS 0개, HTML fallback 시도`
-    );
+      console.log(
+        `🔁 ${playlistTitle}: method=page라서 HTML 병합 시도`
+      );
+    } else {
+      console.log(
+        `⚠️ ${playlistTitle}: RSS 0개, HTML fallback 시도`
+      );
+    }
   } catch (error) {
     console.log(
       `⚠️ ${playlistTitle}: RSS 실패(${error.message}), HTML fallback 시도`
@@ -1011,17 +1137,24 @@ async function fetchPlaylist(
   const url =
     `https://www.youtube.com/playlist?list=${playlistId}`;
 
-  const html = await fetchText(url);
+  let html = "";
+  let data = null;
 
-  const data =
-    extractInitialData(html);
+  try {
+    html = await fetchText(url);
+    data = extractInitialData(html);
+  } catch (error) {
+    console.log(
+      `⚠️ ${playlistTitle}: HTML fetch 실패(${error.message})`
+    );
+  }
 
   if (!data) {
     console.log(
       `❌ ${playlistTitle}: ytInitialData 없음`
     );
 
-    return [];
+    return feedItems;
   }
 
   const rawItems =
@@ -1031,14 +1164,16 @@ async function fetchPlaylist(
 
   const baseDate = new Date();
 
-  const items = rawItems
+  const pageItems = rawItems
     .map((v, index) => {
       const item = itemFromPageRenderer(
         v,
         {
-          sourceMethod: "playlist",
+          sourceMethod: "playlist-page",
           name: itemName,
           type: itemType,
+          channelId:
+            sourceMeta.channelId || "",
           channelTitle,
           playlistYear:
             playlist.year || "",
@@ -1065,13 +1200,17 @@ async function fetchPlaylist(
     })
     .filter(Boolean);
 
-  console.log(
-    `✅ ${playlistTitle}: ${items.length}개`
+  const merged = mergeVideoItems(
+    feedItems,
+    pageItems
   );
 
-  return items;
-}
+  console.log(
+    `✅ ${playlistTitle}: RSS ${feedItems.length} + HTML ${pageItems.length} → ${merged.length}개`
+  );
 
+  return merged.length ? merged : feedItems;
+}
 function itemFromManualVideo(
   video,
   index = 0
@@ -1193,7 +1332,9 @@ async function main() {
             {
               name: source.name,
               type: source.type,
+              channelId: source.channelId || "",
               channelTitle: source.name,
+              method: source.method,
             }
           )
         : await fetchFeed(source);
