@@ -23,11 +23,13 @@
     {
       "name": "캄냥이",
       "type": "fan",
+      "method": "page",
       "url": "https://www.youtube.com/@%EC%BA%84%EB%83%A5%EC%9D%B4/videos"
     },
     {
       "name": "캄냥이",
       "type": "fan",
+      "method": "page",
       "url": "https://www.youtube.com/@%EC%BA%84%EB%83%A5%EC%9D%B4/shorts"
     }
   ],
