@@ -1,5 +1,5 @@
 {
-  "checkedAt": "2026-06-25 20:20:25",
+  "checkedAt": "2026-06-25 20:30:28",
   "count": 60,
   "items": [
     {
@@ -109,8 +109,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "3nbRcyeP6co",
       "title": "캄몬 트롤은 못말려 (덕몽어스)",
-      "publishedAt": "2026-06-21T10:47:05.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-21T10:57:08.859Z",
+      "updatedAt": "2026-06-25T11:30:28.859Z",
       "publishedText": "4일 전",
       "lengthText": "13:41",
       "displayDate": "4일 전",
@@ -118,7 +118,7 @@
       "url": "https://www.youtube.com/watch?v=3nbRcyeP6co",
       "link": "https://www.youtube.com/watch?v=3nbRcyeP6co&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/3nbRcyeP6co",
-      "thumbnail": "https://i.ytimg.com/vi/3nbRcyeP6co/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLBrph4rTOyC0R6vmZEL4WKL5TDDbw"
+      "thumbnail": "https://i.ytimg.com/vi/3nbRcyeP6co/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAWmTnBubcAK0tzzjdlhD8lTUJcFg"
     },
     {
       "source": "youtube",
@@ -186,22 +186,6 @@
     },
     {
       "source": "youtube",
-      "sourceMethod": "rss",
-      "name": "캄냥이",
-      "type": "fan",
-      "channelId": "UCA2fElM1yTQdMJr_b_Sj8Bg",
-      "channelTitle": "캄냥이",
-      "title": "조이야 왜그래",
-      "url": "https://www.youtube.com/watch?v=Y2RV4_mdZHk",
-      "videoId": "Y2RV4_mdZHk",
-      "thumbnail": "https://i.ytimg.com/vi/Y2RV4_mdZHk/hqdefault.jpg",
-      "publishedAt": "2026-06-19T11:28:23+00:00",
-      "updatedAt": "2026-06-23T01:14:41+00:00",
-      "displayDate": "5일 전",
-      "displayMeta": "캄냥이 · 5일 전"
-    },
-    {
-      "source": "youtube",
       "sourceMethod": "playlist-page",
       "name": "캄냥이",
       "type": "fan",
@@ -211,8 +195,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "EN8stDxt-Mc",
       "title": "구슬동자 토마토",
-      "publishedAt": "2026-06-19T11:20:08.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:12.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "1:09",
       "displayDate": "6일 전",
@@ -220,7 +204,7 @@
       "url": "https://www.youtube.com/watch?v=EN8stDxt-Mc",
       "link": "https://www.youtube.com/watch?v=EN8stDxt-Mc&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/EN8stDxt-Mc",
-      "thumbnail": "https://i.ytimg.com/vi/EN8stDxt-Mc/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYSSBJKFkwD7gC8xg=&rs=AOn4CLAv8u-xzJ1JLv_8tTY6sfK7bK0nhA"
+      "thumbnail": "https://i.ytimg.com/vi/EN8stDxt-Mc/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYSSBJKFkwDw==&rs=AOn4CLB5FtDSpYCApgshe0JJvbolI0Om0A"
     },
     {
       "source": "youtube",
@@ -233,8 +217,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "4meAvkfrOV4",
       "title": "두비두 - 김민철",
-      "publishedAt": "2026-06-19T11:20:07.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:11.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:38",
       "displayDate": "6일 전",
@@ -242,7 +226,7 @@
       "url": "https://www.youtube.com/watch?v=4meAvkfrOV4",
       "link": "https://www.youtube.com/watch?v=4meAvkfrOV4&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/4meAvkfrOV4",
-      "thumbnail": "https://i.ytimg.com/vi/4meAvkfrOV4/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBVKGUwD7gC8xg=&rs=AOn4CLCzY39LfqzqHAKY83EPgZ1Vin_HhQ"
+      "thumbnail": "https://i.ytimg.com/vi/4meAvkfrOV4/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBVKGUwDw==&rs=AOn4CLD0xeinJXZynWw5yhi3BIvA_yCcdg"
     },
     {
       "source": "youtube",
@@ -255,8 +239,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "XpJ6CMh-8bE",
       "title": "김윤환 숨바꼭질",
-      "publishedAt": "2026-06-19T11:20:06.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:10.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:28",
       "displayDate": "6일 전",
@@ -264,7 +248,7 @@
       "url": "https://www.youtube.com/watch?v=XpJ6CMh-8bE",
       "link": "https://www.youtube.com/watch?v=XpJ6CMh-8bE&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/XpJ6CMh-8bE",
-      "thumbnail": "https://i.ytimg.com/vi/XpJ6CMh-8bE/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUCBeKGUwD7gC8xg=&rs=AOn4CLBfZ6GXnPRwC6ET13o-oiLXhyGnnA"
+      "thumbnail": "https://i.ytimg.com/vi/XpJ6CMh-8bE/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUCBeKGUwDw==&rs=AOn4CLAihvTS0XZ0ny4eNQOZUFeGACowRw"
     },
     {
       "source": "youtube",
@@ -277,8 +261,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "nnIPu8_FsYU",
       "title": "캄몬 합숙소",
-      "publishedAt": "2026-06-19T11:20:05.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:09.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:43",
       "displayDate": "6일 전",
@@ -286,7 +270,7 @@
       "url": "https://www.youtube.com/watch?v=nnIPu8_FsYU",
       "link": "https://www.youtube.com/watch?v=nnIPu8_FsYU&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/nnIPu8_FsYU",
-      "thumbnail": "https://i.ytimg.com/vi/nnIPu8_FsYU/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBcKGUwD7gC8xg=&rs=AOn4CLB-AwMTFGGzIGcPaqbs4UM34rr2Xg"
+      "thumbnail": "https://i.ytimg.com/vi/nnIPu8_FsYU/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBcKGUwDw==&rs=AOn4CLCjXFcoRDv-CyfHpKr33txyTFWMpQ"
     },
     {
       "source": "youtube",
@@ -299,8 +283,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "VIBcipA4YXI",
       "title": "낭니 - unwelcome school",
-      "publishedAt": "2026-06-19T11:20:04.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:08.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:38",
       "displayDate": "6일 전",
@@ -308,7 +292,7 @@
       "url": "https://www.youtube.com/watch?v=VIBcipA4YXI",
       "link": "https://www.youtube.com/watch?v=VIBcipA4YXI&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/VIBcipA4YXI",
-      "thumbnail": "https://i.ytimg.com/vi/VIBcipA4YXI/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBYKFowD7gC8xg=&rs=AOn4CLAsCTEoi3Pu7vcL9Teo2ak5785fZA"
+      "thumbnail": "https://i.ytimg.com/vi/VIBcipA4YXI/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBYKFowDw==&rs=AOn4CLB_LnfEWrj6v_bExZiNe3nIgBMOgA"
     },
     {
       "source": "youtube",
@@ -321,8 +305,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "NCY6GkDZ1iM",
       "title": "바보 아니에요 - 먼진",
-      "publishedAt": "2026-06-19T11:20:03.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:07.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:26",
       "displayDate": "6일 전",
@@ -330,7 +314,7 @@
       "url": "https://www.youtube.com/watch?v=NCY6GkDZ1iM",
       "link": "https://www.youtube.com/watch?v=NCY6GkDZ1iM&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/NCY6GkDZ1iM",
-      "thumbnail": "https://i.ytimg.com/vi/NCY6GkDZ1iM/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBKKGUwD7gC8xg=&rs=AOn4CLD9vy8xFb3cyUHm8xkdJqudmbXNlg"
+      "thumbnail": "https://i.ytimg.com/vi/NCY6GkDZ1iM/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBKKGUwDw==&rs=AOn4CLDjQp3EHpQ5Mik9TIm14mjkZadLog"
     },
     {
       "source": "youtube",
@@ -343,8 +327,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "0xOI-LasMO8",
       "title": "고양이인줄 알았는데 연금술사",
-      "publishedAt": "2026-06-19T11:20:02.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:06.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:29",
       "displayDate": "6일 전",
@@ -352,7 +336,7 @@
       "url": "https://www.youtube.com/watch?v=0xOI-LasMO8",
       "link": "https://www.youtube.com/watch?v=0xOI-LasMO8&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/0xOI-LasMO8",
-      "thumbnail": "https://i.ytimg.com/vi/0xOI-LasMO8/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBaKGUwD7gC8xg=&rs=AOn4CLBg3qRiPYsrjJwIo70jMUSF9AKF2w"
+      "thumbnail": "https://i.ytimg.com/vi/0xOI-LasMO8/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYUSBaKGUwDw==&rs=AOn4CLCZF8-lqkASdWaZyNk9Bs3dQiERVQ"
     },
     {
       "source": "youtube",
@@ -365,8 +349,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "rA3cmWVsOuE",
       "title": "honeypie - 소주양",
-      "publishedAt": "2026-06-19T11:20:01.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:05.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:35",
       "displayDate": "6일 전",
@@ -374,7 +358,7 @@
       "url": "https://www.youtube.com/watch?v=rA3cmWVsOuE",
       "link": "https://www.youtube.com/watch?v=rA3cmWVsOuE&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/rA3cmWVsOuE",
-      "thumbnail": "https://i.ytimg.com/vi/rA3cmWVsOuE/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwD7gC8xg=&rs=AOn4CLDkRi1PjfQ_Nu_uxmKXMHWsM68tpg"
+      "thumbnail": "https://i.ytimg.com/vi/rA3cmWVsOuE/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLD3aVq2wYq8fgMQ6fI09cZ723f8cw"
     },
     {
       "source": "youtube",
@@ -387,8 +371,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "mSfglFpUkrs",
       "title": "암날두",
-      "publishedAt": "2026-06-19T11:20:00.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:04.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:20",
       "displayDate": "6일 전",
@@ -396,7 +380,7 @@
       "url": "https://www.youtube.com/watch?v=mSfglFpUkrs",
       "link": "https://www.youtube.com/watch?v=mSfglFpUkrs&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/mSfglFpUkrs",
-      "thumbnail": "https://i.ytimg.com/vi/mSfglFpUkrs/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYMyBYKHIwD7gC8xg=&rs=AOn4CLArKR6EVrR8wgKwa1BT9R5JOg5V7A"
+      "thumbnail": "https://i.ytimg.com/vi/mSfglFpUkrs/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYMyBYKHIwDw==&rs=AOn4CLCHoC94N0uwU3HyCtR4_TbOb8lLdQ"
     },
     {
       "source": "youtube",
@@ -409,8 +393,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "yIR6_vWNG4k",
       "title": "Hollywood action (비타밍)",
-      "publishedAt": "2026-06-19T11:19:59.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:03.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:24",
       "displayDate": "6일 전",
@@ -418,7 +402,7 @@
       "url": "https://www.youtube.com/watch?v=yIR6_vWNG4k",
       "link": "https://www.youtube.com/watch?v=yIR6_vWNG4k&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/yIR6_vWNG4k",
-      "thumbnail": "https://i.ytimg.com/vi/yIR6_vWNG4k/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYciBQKEIwD7gC8xg=&rs=AOn4CLDDEAq-z3ZI9cGh0NCCZyQyQgYUEQ"
+      "thumbnail": "https://i.ytimg.com/vi/yIR6_vWNG4k/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYciBQKEIwDw==&rs=AOn4CLAcDXjgDdbx8VGDgJCPxFkHKyd3TQ"
     },
     {
       "source": "youtube",
@@ -431,8 +415,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "hh67bUjjwrQ",
       "title": "RED RED (임조이)",
-      "publishedAt": "2026-06-19T11:19:58.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:02.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:33",
       "displayDate": "6일 전",
@@ -440,7 +424,7 @@
       "url": "https://www.youtube.com/watch?v=hh67bUjjwrQ",
       "link": "https://www.youtube.com/watch?v=hh67bUjjwrQ&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/hh67bUjjwrQ",
-      "thumbnail": "https://i.ytimg.com/vi/hh67bUjjwrQ/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBaKFwwD7gC8xg=&rs=AOn4CLA00JUUKaS7zQPs9I6n_tDGG4PixQ"
+      "thumbnail": "https://i.ytimg.com/vi/hh67bUjjwrQ/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBaKFwwDw==&rs=AOn4CLAls3Vr5K9JzUIoAsSQXn-u6NV6Tg"
     },
     {
       "source": "youtube",
@@ -453,8 +437,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "INWqX6d4p3k",
       "title": "귀엽기만 하면 안되나요? (치리)",
-      "publishedAt": "2026-06-19T11:19:57.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:01.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:26",
       "displayDate": "6일 전",
@@ -462,7 +446,7 @@
       "url": "https://www.youtube.com/watch?v=INWqX6d4p3k",
       "link": "https://www.youtube.com/watch?v=INWqX6d4p3k&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/INWqX6d4p3k",
-      "thumbnail": "https://i.ytimg.com/vi/INWqX6d4p3k/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYIyBlKDwwD7gC8xg=&rs=AOn4CLAuFUb10e_dDdaLTBV2Ix_6cvdIvw"
+      "thumbnail": "https://i.ytimg.com/vi/INWqX6d4p3k/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYIyBlKDwwDw==&rs=AOn4CLDVxE1LqDfURYk54lMkJJet4heEDg"
     },
     {
       "source": "youtube",
@@ -475,8 +459,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "iYRzUiHWLWc",
       "title": "모시모시 (치리)",
-      "publishedAt": "2026-06-19T11:19:56.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:30:00.883Z",
+      "updatedAt": "2026-06-25T11:30:26.883Z",
       "publishedText": "6일 전",
       "lengthText": "0:22",
       "displayDate": "6일 전",
@@ -484,7 +468,7 @@
       "url": "https://www.youtube.com/watch?v=iYRzUiHWLWc",
       "link": "https://www.youtube.com/watch?v=iYRzUiHWLWc&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/iYRzUiHWLWc",
-      "thumbnail": "https://i.ytimg.com/vi/iYRzUiHWLWc/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYVyBdKGUwD7gC8xg=&rs=AOn4CLA_eelbdNlfVWheAlZRtoPHCwHunw"
+      "thumbnail": "https://i.ytimg.com/vi/iYRzUiHWLWc/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYVyBdKGUwDw==&rs=AOn4CLAqWDpxW1w_kGt5RfY3rs-2Xi-yuw"
     },
     {
       "source": "youtube",
@@ -497,8 +481,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "3CkLr401l7M",
       "title": "임조이 - 비상사태 (공습경보)",
-      "publishedAt": "2026-06-19T11:19:55.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:29:59.883Z",
+      "updatedAt": "2026-06-25T11:30:26.884Z",
       "publishedText": "6일 전",
       "lengthText": "0:23",
       "displayDate": "6일 전",
@@ -506,7 +490,7 @@
       "url": "https://www.youtube.com/watch?v=3CkLr401l7M",
       "link": "https://www.youtube.com/watch?v=3CkLr401l7M&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/3CkLr401l7M",
-      "thumbnail": "https://i.ytimg.com/vi/3CkLr401l7M/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwD7gC8xg=&rs=AOn4CLAKh8VPlWUT0l0iYz1k8cA4hWvcqA"
+      "thumbnail": "https://i.ytimg.com/vi/3CkLr401l7M/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLA8bCkHE1MNy2EBedf7GQYqcd3-Vw"
     },
     {
       "source": "youtube",
@@ -519,8 +503,8 @@
       "playlistTitle": "캄냥이 업로드",
       "videoId": "XDsQ8B_RAdA",
       "title": "챱츄 챱챱츄 (치리)",
-      "publishedAt": "2026-06-19T11:19:54.975Z",
-      "updatedAt": "2026-06-25T11:20:22.976Z",
+      "publishedAt": "2026-06-19T11:29:58.883Z",
+      "updatedAt": "2026-06-25T11:30:26.884Z",
       "publishedText": "6일 전",
       "lengthText": "0:19",
       "displayDate": "6일 전",
@@ -528,7 +512,23 @@
       "url": "https://www.youtube.com/watch?v=XDsQ8B_RAdA",
       "link": "https://www.youtube.com/watch?v=XDsQ8B_RAdA&list=UUA2fElM1yTQdMJr_b_Sj8Bg",
       "embedUrl": "https://www.youtube.com/embed/XDsQ8B_RAdA",
-      "thumbnail": "https://i.ytimg.com/vi/XDsQ8B_RAdA/hqdefault.jpg?sqp=-oaymwFBCNACELwBSFryq4qpAzMIARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwD7gC8xg=&rs=AOn4CLCwha576bkcPlxjHjyvHOZ9p7tCew"
+      "thumbnail": "https://i.ytimg.com/vi/XDsQ8B_RAdA/hqdefault.jpg?sqp=-oaymwE9CNACELwBSFryq4qpAy8IARUAAAAAGAElAADIQj0AgKJDeAHwAQH4AbYIgAKAD4oCDAgAEAEYZSBlKGUwDw==&rs=AOn4CLDPB0v73tlC0nJLCHQfWOOUx7Y-ew"
+    },
+    {
+      "source": "youtube",
+      "sourceMethod": "rss",
+      "name": "캄냥이",
+      "type": "fan",
+      "channelId": "UCA2fElM1yTQdMJr_b_Sj8Bg",
+      "channelTitle": "캄냥이",
+      "title": "조이야 왜그래",
+      "url": "https://www.youtube.com/watch?v=Y2RV4_mdZHk",
+      "videoId": "Y2RV4_mdZHk",
+      "thumbnail": "https://i.ytimg.com/vi/Y2RV4_mdZHk/hqdefault.jpg",
+      "publishedAt": "2026-06-19T11:28:23+00:00",
+      "updatedAt": "2026-06-23T01:14:41+00:00",
+      "displayDate": "6일 전",
+      "displayMeta": "캄냥이 · 6일 전"
     },
     {
       "source": "youtube",
@@ -605,8 +605,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "nbVD94OaRhA",
       "title": "캄몬 OFFICIAL 김민철",
-      "publishedAt": "2026-06-17T10:46:27.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-17T10:56:30.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "8일 전",
       "lengthText": "2:14",
       "displayDate": "8일 전",
@@ -614,7 +614,7 @@
       "url": "https://www.youtube.com/watch?v=nbVD94OaRhA",
       "link": "https://www.youtube.com/watch?v=nbVD94OaRhA&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/nbVD94OaRhA",
-      "thumbnail": "https://i.ytimg.com/vi/nbVD94OaRhA/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLBQbAXtb-WL9hBZtZblkjS_bY6gNw"
+      "thumbnail": "https://i.ytimg.com/vi/nbVD94OaRhA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAPqoQ1mS6QHx4bZVvUiLJT8j4C6Q"
     },
     {
       "source": "youtube",
@@ -627,8 +627,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "4EnDMJurETE",
       "title": "캄몬 훈수는 집에서 둬라(변현제편)",
-      "publishedAt": "2026-06-15T10:46:28.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-15T10:56:31.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "10일 전",
       "lengthText": "5:51",
       "displayDate": "10일 전",
@@ -636,7 +636,7 @@
       "url": "https://www.youtube.com/watch?v=4EnDMJurETE",
       "link": "https://www.youtube.com/watch?v=4EnDMJurETE&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/4EnDMJurETE",
-      "thumbnail": "https://i.ytimg.com/vi/4EnDMJurETE/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLCVBkm2oIa4Yml9Eebpuf7rtbvrBg"
+      "thumbnail": "https://i.ytimg.com/vi/4EnDMJurETE/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCqBKy6-BPjh9HcyvXQ4C9pv6AoFA"
     },
     {
       "source": "youtube",
@@ -689,7 +689,7 @@
       "videoId": "q6DOTf5Mzwg",
       "title": "캄몬 OFFICIAL 변현제",
       "publishedAt": "2026-06-13T11:10:04-07:00",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1주 전",
       "lengthText": "",
       "displayDate": "1주 전",
@@ -712,7 +712,7 @@
       "videoId": "bj2I_q46nH8",
       "title": "캄몬 김윤환 생일 축하",
       "publishedAt": "2026-06-12T07:18:15-07:00",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1주 전",
       "lengthText": "",
       "displayDate": "1주 전",
@@ -733,8 +733,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "G7kpUoljdrA",
       "title": "캄몬 문제아 특집 지두두편",
-      "publishedAt": "2026-06-11T10:46:31.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-11T10:56:34.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "2주 전",
       "lengthText": "9:26",
       "displayDate": "2주 전",
@@ -742,7 +742,7 @@
       "url": "https://www.youtube.com/watch?v=G7kpUoljdrA",
       "link": "https://www.youtube.com/watch?v=G7kpUoljdrA&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/G7kpUoljdrA",
-      "thumbnail": "https://i.ytimg.com/vi/G7kpUoljdrA/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLDFcw0yogONhfz8WfVzgbMaePTlpw"
+      "thumbnail": "https://i.ytimg.com/vi/G7kpUoljdrA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCYR7yBBQnFgB978FThCXsEGnyzFQ"
     },
     {
       "source": "youtube",
@@ -755,8 +755,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "qUu2s_v08vQ",
       "title": "캄몬 문제아 특집 2편 또두두",
-      "publishedAt": "2026-06-11T10:46:30.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-11T10:56:33.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "2주 전",
       "lengthText": "10:47",
       "displayDate": "2주 전",
@@ -764,7 +764,7 @@
       "url": "https://www.youtube.com/watch?v=qUu2s_v08vQ",
       "link": "https://www.youtube.com/watch?v=qUu2s_v08vQ&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/qUu2s_v08vQ",
-      "thumbnail": "https://i.ytimg.com/vi/qUu2s_v08vQ/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLDzDViGT-0qmo3Of8VVxAmoPoAHWA"
+      "thumbnail": "https://i.ytimg.com/vi/qUu2s_v08vQ/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD_8MoNLaDVE1SBih5wxHkzY3Nm9g"
     },
     {
       "source": "youtube",
@@ -777,8 +777,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "x3mFhewD80A",
       "title": "캄몬 문제아 특집 마지막편",
-      "publishedAt": "2026-06-11T10:46:29.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-11T10:56:32.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "2주 전",
       "lengthText": "12:55",
       "displayDate": "2주 전",
@@ -786,7 +786,7 @@
       "url": "https://www.youtube.com/watch?v=x3mFhewD80A",
       "link": "https://www.youtube.com/watch?v=x3mFhewD80A&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/x3mFhewD80A",
-      "thumbnail": "https://i.ytimg.com/vi/x3mFhewD80A/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLBvGhtG1dUNfRk7IW-UKhhpKVFBIg"
+      "thumbnail": "https://i.ytimg.com/vi/x3mFhewD80A/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCnuU-KE2E1J_P_MABaA30jMjUDYg"
     },
     {
       "source": "youtube",
@@ -853,8 +853,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "YB7QyVlt0Is",
       "title": "캄몬 음지덕몽을 빛내는 자들",
-      "publishedAt": "2026-06-04T10:47:04.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-04T10:57:07.859Z",
+      "updatedAt": "2026-06-25T11:30:28.859Z",
       "publishedText": "3주 전",
       "lengthText": "12:23",
       "displayDate": "3주 전",
@@ -862,7 +862,7 @@
       "url": "https://www.youtube.com/watch?v=YB7QyVlt0Is",
       "link": "https://www.youtube.com/watch?v=YB7QyVlt0Is&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/YB7QyVlt0Is",
-      "thumbnail": "https://i.ytimg.com/vi/YB7QyVlt0Is/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLCZ9i9jTWOEUSZKj9ThrpdOTf2lbg"
+      "thumbnail": "https://i.ytimg.com/vi/YB7QyVlt0Is/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAdOKuNiqIDww2KxJv0p2j5Q7aqjQ"
     },
     {
       "source": "youtube",
@@ -875,8 +875,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "aawBCCzpgZ8",
       "title": "캄몬X씨나인 갯벌스타 벌칙모음",
-      "publishedAt": "2026-06-04T10:46:32.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-06-04T10:56:35.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "3주 전",
       "lengthText": "5:48",
       "displayDate": "3주 전",
@@ -884,7 +884,7 @@
       "url": "https://www.youtube.com/watch?v=aawBCCzpgZ8",
       "link": "https://www.youtube.com/watch?v=aawBCCzpgZ8&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/aawBCCzpgZ8",
-      "thumbnail": "https://i.ytimg.com/vi/aawBCCzpgZ8/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLBl_XQKJXETE2IaMM4rsrZM5ZNVEg"
+      "thumbnail": "https://i.ytimg.com/vi/aawBCCzpgZ8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBVeJxWtox8Kl-ua-rEFhtLz1XEYQ"
     },
     {
       "source": "youtube",
@@ -935,8 +935,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "6iyeonqpzNc",
       "title": "캄몬 국밥을 낚는 그녀석들",
-      "publishedAt": "2026-05-28T10:47:03.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-28T10:57:06.859Z",
+      "updatedAt": "2026-06-25T11:30:28.859Z",
       "publishedText": "4주 전",
       "lengthText": "8:56",
       "displayDate": "4주 전",
@@ -944,7 +944,7 @@
       "url": "https://www.youtube.com/watch?v=6iyeonqpzNc",
       "link": "https://www.youtube.com/watch?v=6iyeonqpzNc&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/6iyeonqpzNc",
-      "thumbnail": "https://i.ytimg.com/vi/6iyeonqpzNc/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLDsB6DSDhfhZs72Z03hJFBhxDqe3w"
+      "thumbnail": "https://i.ytimg.com/vi/6iyeonqpzNc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCY3PrR7kYOMG9FOzMDH6NfouDNbQ"
     },
     {
       "source": "youtube",
@@ -957,8 +957,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "t9XbCBh-6Wk",
       "title": "캄몬 김윤환은 배가 고픕니다 (덕몽어스)",
-      "publishedAt": "2026-05-25T10:47:02.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:57:05.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "11:19",
       "displayDate": "1개월 전",
@@ -966,7 +966,7 @@
       "url": "https://www.youtube.com/watch?v=t9XbCBh-6Wk",
       "link": "https://www.youtube.com/watch?v=t9XbCBh-6Wk&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/t9XbCBh-6Wk",
-      "thumbnail": "https://i.ytimg.com/vi/t9XbCBh-6Wk/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLBf02m-_qV3RsHAjhGEpig3mYuYWw"
+      "thumbnail": "https://i.ytimg.com/vi/t9XbCBh-6Wk/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLA88Uxdop4LPpt7xfOrJ7WyDr6MTw"
     },
     {
       "source": "youtube",
@@ -979,8 +979,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "yaQZOSnypBA",
       "title": "캄몬 육알이 나르샤 (덕몽어스)",
-      "publishedAt": "2026-05-25T10:47:01.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:57:04.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "7:54",
       "displayDate": "1개월 전",
@@ -988,7 +988,7 @@
       "url": "https://www.youtube.com/watch?v=yaQZOSnypBA",
       "link": "https://www.youtube.com/watch?v=yaQZOSnypBA&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/yaQZOSnypBA",
-      "thumbnail": "https://i.ytimg.com/vi/yaQZOSnypBA/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLAxEyXqtRaACpkcHLQd2hMEfYt3lg"
+      "thumbnail": "https://i.ytimg.com/vi/yaQZOSnypBA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBqioMTo0xfC_AXd8ajpkmAetqLzQ"
     },
     {
       "source": "youtube",
@@ -1001,8 +1001,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "d1kKpo2kBOc",
       "title": "캄몬스타즈 부패 보안관 김윤암",
-      "publishedAt": "2026-05-25T10:47:00.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:57:03.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "6:28",
       "displayDate": "1개월 전",
@@ -1010,7 +1010,7 @@
       "url": "https://www.youtube.com/watch?v=d1kKpo2kBOc",
       "link": "https://www.youtube.com/watch?v=d1kKpo2kBOc&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/d1kKpo2kBOc",
-      "thumbnail": "https://i.ytimg.com/vi/d1kKpo2kBOc/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLDw0lUEUzTpJ6fcvdZYzgoiWskttg"
+      "thumbnail": "https://i.ytimg.com/vi/d1kKpo2kBOc/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDF--sQzpsgbPYgxaWeg8fwPZkL_A"
     },
     {
       "source": "youtube",
@@ -1023,8 +1023,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "fcw5snIN_1c",
       "title": "몬스타즈 김윤환이 덕몽 즐기는 방법",
-      "publishedAt": "2026-05-25T10:46:59.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:57:02.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "6:06",
       "displayDate": "1개월 전",
@@ -1032,7 +1032,7 @@
       "url": "https://www.youtube.com/watch?v=fcw5snIN_1c",
       "link": "https://www.youtube.com/watch?v=fcw5snIN_1c&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/fcw5snIN_1c",
-      "thumbnail": "https://i.ytimg.com/vi/fcw5snIN_1c/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLAH3bSQ49J3Xa0WWbgZIxgyuoDBHA"
+      "thumbnail": "https://i.ytimg.com/vi/fcw5snIN_1c/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLD2Lu4DLGOYdCiDkUrYRQBNjZtyYA"
     },
     {
       "source": "youtube",
@@ -1045,8 +1045,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "9oco0trgbrM",
       "title": "츠캄 몬스타즈 GOOD BYE 경민",
-      "publishedAt": "2026-05-25T10:46:58.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:57:01.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "2:50",
       "displayDate": "1개월 전",
@@ -1054,7 +1054,7 @@
       "url": "https://www.youtube.com/watch?v=9oco0trgbrM",
       "link": "https://www.youtube.com/watch?v=9oco0trgbrM&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/9oco0trgbrM",
-      "thumbnail": "https://i.ytimg.com/vi/9oco0trgbrM/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLAnu9PmE9MbWrSJGXjP_Aegc9s7Pw"
+      "thumbnail": "https://i.ytimg.com/vi/9oco0trgbrM/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLAdERXJwkSBH9ZEj31_fc3PdJs73A"
     },
     {
       "source": "youtube",
@@ -1067,8 +1067,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "sibmcdqlPfY",
       "title": "츠캄 몬스타즈 짤로 보는 MT편",
-      "publishedAt": "2026-05-25T10:46:57.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:57:00.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "3:04",
       "displayDate": "1개월 전",
@@ -1076,7 +1076,7 @@
       "url": "https://www.youtube.com/watch?v=sibmcdqlPfY",
       "link": "https://www.youtube.com/watch?v=sibmcdqlPfY&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/sibmcdqlPfY",
-      "thumbnail": "https://i.ytimg.com/vi/sibmcdqlPfY/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLD3rR3BdfrFInJmyXOMK-89H97fXw"
+      "thumbnail": "https://i.ytimg.com/vi/sibmcdqlPfY/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDq3Ph_bBcmGnxcfrNmY6hhCIpf1A"
     },
     {
       "source": "youtube",
@@ -1089,8 +1089,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "s0oOwNAULFg",
       "title": "츠캄 몬스타즈 암흠의 봄날노래방",
-      "publishedAt": "2026-05-25T10:46:56.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:56:59.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "3:42",
       "displayDate": "1개월 전",
@@ -1098,7 +1098,7 @@
       "url": "https://www.youtube.com/watch?v=s0oOwNAULFg",
       "link": "https://www.youtube.com/watch?v=s0oOwNAULFg&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/s0oOwNAULFg",
-      "thumbnail": "https://i.ytimg.com/vi/s0oOwNAULFg/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLCKNG8Vek4sC5thqAvzIiTDXqlzdQ"
+      "thumbnail": "https://i.ytimg.com/vi/s0oOwNAULFg/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLBnBgvWVHmsYAw8mE-UFQw9w8pj_Q"
     },
     {
       "source": "youtube",
@@ -1111,8 +1111,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "QMoShxhicl8",
       "title": "츠캄 몬스타즈 빌드 실명제 재판(김윤환)",
-      "publishedAt": "2026-05-25T10:46:55.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:56:58.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "5:46",
       "displayDate": "1개월 전",
@@ -1120,7 +1120,7 @@
       "url": "https://www.youtube.com/watch?v=QMoShxhicl8",
       "link": "https://www.youtube.com/watch?v=QMoShxhicl8&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/QMoShxhicl8",
-      "thumbnail": "https://i.ytimg.com/vi/QMoShxhicl8/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLBjJjPJf2DwbYy60awqq8FZ4QDbgw"
+      "thumbnail": "https://i.ytimg.com/vi/QMoShxhicl8/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLCMVUK4DIYERxl9-amI0sG8G94r2g"
     },
     {
       "source": "youtube",
@@ -1133,8 +1133,8 @@
       "playlistTitle": "츠캄 몬스타즈 2026년",
       "videoId": "tSJIz_MJYTA",
       "title": "츠캄 몬스타즈 톤믈리에 븅X환",
-      "publishedAt": "2026-05-25T10:46:54.199Z",
-      "updatedAt": "2026-06-25T11:20:25.200Z",
+      "publishedAt": "2026-05-25T10:56:57.859Z",
+      "updatedAt": "2026-06-25T11:30:28.860Z",
       "publishedText": "1개월 전",
       "lengthText": "5:53",
       "displayDate": "1개월 전",
@@ -1142,7 +1142,7 @@
       "url": "https://www.youtube.com/watch?v=tSJIz_MJYTA",
       "link": "https://www.youtube.com/watch?v=tSJIz_MJYTA&list=PL-PBKf1_yEtsDMDmfTMrCX3sm4WQf4vgU",
       "embedUrl": "https://www.youtube.com/embed/tSJIz_MJYTA",
-      "thumbnail": "https://i.ytimg.com/vi/tSJIz_MJYTA/hqdefault.jpg?sqp=-oaymwEnCNACELwBSFryq4qpAxkIARUAAAAAGAElAADIQj0AgKJDeAG4AvMY&rs=AOn4CLCQWQuMT9yiLayVajg12hYRDqXpuw"
+      "thumbnail": "https://i.ytimg.com/vi/tSJIz_MJYTA/hqdefault.jpg?sqp=-oaymwEjCNACELwBSFryq4qpAxUIARUAAAAAGAElAADIQj0AgKJDeAE=&rs=AOn4CLDQt4bxK-X-QAwtM1YRc_pjIK657A"
     },
     {
       "source": "youtube",
