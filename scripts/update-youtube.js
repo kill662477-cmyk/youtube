@@ -1391,6 +1391,90 @@ async function main() {
   }
 
   //////////////////////////////////////////////////////
+  // 아카이브 재생목록 (탭별 전량, 최근순, slice 없음)
+  //////////////////////////////////////////////////////
+
+  const archive = [];
+
+  for (
+    let i = 0;
+    i <
+    (data.archivePlaylists ||
+      []).length;
+    i++
+  ) {
+    const playlist =
+      data.archivePlaylists[i];
+
+    try {
+      const rawItems =
+        await fetchPlaylist(
+          playlist,
+          i,
+          {
+            name: playlist.name || "캄린이",
+            type: playlist.type || "kamrini",
+            method: "page",
+          }
+        );
+
+      const seen = new Set();
+
+      const groupItems = rawItems
+        .filter((item) => {
+          if (
+            !item ||
+            !item.videoId ||
+            seen.has(item.videoId)
+          ) {
+            return false;
+          }
+
+          seen.add(item.videoId);
+
+          return true;
+        })
+        .sort((a, b) => {
+          return (
+            new Date(
+              b.publishedAt ||
+                b.updatedAt
+            ) -
+            new Date(
+              a.publishedAt ||
+                a.updatedAt
+            )
+          );
+        });
+
+      archive.push({
+        key: playlist.key,
+        tabTitle:
+          playlist.tabTitle ||
+          playlist.title ||
+          playlist.key,
+        title: playlist.title || "",
+        year: playlist.year || "",
+        count: groupItems.length,
+        items: groupItems,
+      });
+
+      console.log(
+        `OK archive ${playlist.tabTitle || playlist.key}: ${groupItems.length}개`
+      );
+    } catch (error) {
+      console.log(
+        `FAIL archive ${playlist.tabTitle || playlist.key}: ${error.message}`
+      );
+
+      errors.push({
+        source: playlist,
+        message: error.message,
+      });
+    }
+  }
+
+  //////////////////////////////////////////////////////
   // 수동 등록 영상
   //////////////////////////////////////////////////////
 
@@ -1463,6 +1547,8 @@ async function main() {
         count: items.length,
 
         items,
+
+        archive,
 
         errors,
       },
