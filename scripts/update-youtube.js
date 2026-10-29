@@ -2,7 +2,7 @@ const fs = require("fs");
 
 const SOURCE_FILE = "data/youtube-sources.json";
 const OUTPUT_FILE = "youtube.json";
-const MAX_ITEMS = 60;
+const SOURCE_ITEM_LIMIT = 40;
 const FETCH_RETRIES = 3;
 const RETRY_DELAY_MS = 1000;
 const RETRYABLE_STATUS = new Set([
@@ -315,7 +315,8 @@ async function fetchChannelPage(
 
   const baseDate = new Date();
 
-  const items = findVideoItems(data)
+  const renderers = await channelPageRenderers(data, html);
+  const items = renderers
     .map((renderer, index) => {
       return itemFromPageRenderer(
         renderer,
@@ -356,6 +357,12 @@ function mergeVideoItems(...groups) {
   });
 
   return merged;
+}
+
+function latestSourceItems(items) {
+  return mergeVideoItems(items)
+    .sort((a, b) => new Date(b.publishedAt || b.updatedAt) - new Date(a.publishedAt || a.updatedAt))
+    .slice(0, SOURCE_ITEM_LIMIT);
 }
 
 function uploadsPlaylistIdFromChannelId(channelId = "") {
@@ -639,6 +646,10 @@ function findVideoItems(
     results.push(obj.reelItemRenderer);
   }
 
+  if (obj.shortsLockupViewModel) {
+    results.push(obj.shortsLockupViewModel);
+  }
+
   if (
     obj.lockupViewModel &&
     obj.lockupViewModel.contentType ===
@@ -657,6 +668,46 @@ function findVideoItems(
   }
 
   return results;
+}
+
+function continuationToken(data) {
+  if (!data || typeof data !== 'object') return '';
+  const direct = data.continuationItemRenderer?.continuationEndpoint?.continuationCommand?.token;
+  if (direct) return direct;
+  for (const value of Object.values(data)) {
+    const token = continuationToken(value);
+    if (token) return token;
+  }
+  return '';
+}
+
+async function channelPageRenderers(data, html) {
+  const tabs = data?.contents?.twoColumnBrowseResultsRenderer?.tabs || [];
+  const content = tabs.find(tab => tab.tabRenderer?.selected)?.tabRenderer?.content || data;
+  const rows = findVideoItems(content);
+  const marker = html.indexOf('"INNERTUBE_CONTEXT":');
+  if (marker < 0) return rows;
+  const context = JSON.parse(parseBalancedJsonFrom(html, marker));
+  let token = continuationToken(content);
+  const visited = new Set();
+  for (let page = 0; page < 3 && token && new Set(rows.map(getVideoId)).size < SOURCE_ITEM_LIMIT; page++) {
+    if (visited.has(token)) break;
+    visited.add(token);
+    try {
+      const response = await fetch('https://www.youtube.com/youtubei/v1/browse?prettyPrint=false', {
+        method: 'POST', headers: {'content-type': 'application/json'},
+        body: JSON.stringify({context, continuation: token}), signal: AbortSignal.timeout(20000),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
+      const next = await response.json();
+      rows.push(...findVideoItems(next));
+      token = continuationToken(next);
+    } catch (error) {
+      console.log(`WARN channel continuation: ${error.message}`);
+      break;
+    }
+  }
+  return rows;
 }
 
 function getText(obj) {
@@ -710,6 +761,7 @@ function getVideoId(renderer) {
     renderer.contentId ||
     renderer.navigationEndpoint
       ?.watchEndpoint?.videoId ||
+    renderer.onTap?.innertubeCommand?.reelWatchEndpoint?.videoId ||
     renderer.rendererContext
       ?.commandContext?.onTap
       ?.innertubeCommand?.watchEndpoint
@@ -720,6 +772,7 @@ function getVideoId(renderer) {
 
 function getRendererTitle(renderer) {
   return (
+    getContentText(renderer.overlayMetadata?.primaryText) ||
     getText(renderer.title) ||
     getContentText(renderer.title) ||
     getContentText(
@@ -858,6 +911,8 @@ function itemFromPageRenderer(
 
     sourceMethod:
       context.sourceMethod || "page",
+
+    ...(renderer.onTap?.innertubeCommand?.reelWatchEndpoint ? {isShort: true} : {}),
 
     name: itemName,
 
@@ -1334,15 +1389,16 @@ async function main() {
               type: source.type,
               channelId: source.channelId || "",
               channelTitle: source.name,
-              method: source.method,
+              method: "page",
             }
           )
-        : await fetchFeed(source);
+        : await fetchFeed({...source, method: "page"});
 
-      allItems.push(...items);
+      const sourceItems = latestSourceItems(items);
+      allItems.push(...sourceItems);
 
       console.log(
-        `OK ${source.name} ${source.type}: ${items.length}개`
+        `OK ${source.name} ${source.type}: ${sourceItems.length}개 (최대 ${SOURCE_ITEM_LIMIT})`
       );
     } catch (error) {
       console.log(
@@ -1373,11 +1429,11 @@ async function main() {
     try {
       const items =
         await fetchPlaylist(
-          playlist,
+          {...playlist, method: "page"},
           i
         );
 
-      allItems.push(...items);
+      allItems.push(...latestSourceItems(items));
     } catch (error) {
       console.log(
         `FAIL KAMRINI ${playlist.title}: ${error.message}`
@@ -1531,8 +1587,7 @@ async function main() {
             a.updatedAt
         )
       );
-    })
-    .slice(0, MAX_ITEMS);
+    });
 
   //////////////////////////////////////////////////////
   // 저장
@@ -1563,8 +1618,10 @@ async function main() {
   );
 }
 
-main().catch((error) => {
+if (require.main === module) main().catch((error) => {
   console.error(error);
 
   process.exit(1);
 });
+
+module.exports = {latestSourceItems, findVideoItems, itemFromPageRenderer, channelPageRenderers, extractInitialData};
